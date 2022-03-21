@@ -1,0 +1,16 @@
+userid          on;
+userid_name     JJSTID;
+#userid_domain   jjshouse.com;
+userid_path     /;
+userid_expires  365d;
+userid_p3p      'policyref="/w3c/p3p.xml", CP="CUR ADM OUR NOR STA NID"';
+
+#set $uid_gott $uid_got;
+#set $uid_sett "";
+
+set $uid_l "";
+set $uid_r "-";
+if ($cookie_JJSTID = "") {
+    set $uid_l "-";
+    set $uid_r "";
+}

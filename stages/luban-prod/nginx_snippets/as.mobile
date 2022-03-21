@@ -1,0 +1,49 @@
+set $gotom 0;
+include app-snippets/as.devices;
+
+set $mobilelimit $uri;
+if ($subsite != '') {
+    set $subdomain $domainname.$subsite;
+}
+
+if ($uri ~* (.*)(/currency__...)(.*)) {
+	set $mobilelimit $1$3;
+}
+
+if ($uri ~* \/full_site__true\/) {
+	set $gotom 0;
+}
+
+if ($cookie_full_site = "true") {
+    set $gotom 0;
+}
+if ($arg_full_site = "true") {
+    set $gotom 0;
+}
+
+# android api
+if ($http_user_agent ~* "okhttp") {
+  set $gotom 1;
+}
+
+if ($gotom = 1) {
+    set $subdomain m.$domainname.$subsite;
+}
+
+set $isApp 0;
+set $app_ua 0;
+if ($http_user_agent ~* "lq-App") {
+    set $app_ua "${app_ua}1";
+}
+if ($http_user_agent ~* "VeryVoga") {
+    set $app_ua "${app_ua}2";
+}
+if ($app_ua = "012") {
+    set $isApp 1;
+}
+
+# android api
+if ($http_user_agent ~* "okhttp") {
+  set $isApp 1;
+}
+

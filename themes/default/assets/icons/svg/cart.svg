@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="商品详情-" transform="translate(-670.000000, -33.000000)">
+            <g id="编组-24">
+                <g id="编组-4" transform="translate(670.000000, 33.000000)">
+                    <rect id="矩形" x="0" y="0" width="52" height="52"></rect>
+                    <g id="编组" transform="translate(10.000000, 8.000000)" stroke="#000000" stroke-width="4">
+                        <path d="M6.6,12.1 L31.9,12.1 L31.9,12.1 L31.9,33 L0,33 L0,18.7 C4.41784944e-16,15.0549207 2.95492065,12.1 6.6,12.1 Z" id="矩形"></path>
+                        <path d="M8.8,20.35 L8.8,7.15 C8.8,3.20116404 12.001164,0 15.95,0 C19.898836,0 23.1,3.20116404 23.1,7.15 L23.1,20.35" id="路径"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

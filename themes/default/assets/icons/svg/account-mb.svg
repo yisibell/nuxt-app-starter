@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="53px" height="52px" viewBox="0 0 53 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="侧边栏-未登录" transform="translate(-432.000000, -1548.000000)">
+            <g id="编组-7" transform="translate(0.000000, 1524.000000)">
+                <g id="编组-9" transform="translate(431.000000, 24.000000)">
+                    <g id="编组-35">
+                        <g id="编组-5" transform="translate(0.500000, 0.000000)">
+                            <rect id="矩形备份-8" x="1" y="0" width="52" height="52"></rect>
+                            <g id="编组-2" transform="translate(12.000000, 8.000000)" stroke="#000000" stroke-width="4">
+                                <circle id="椭圆形" cx="15" cy="9" r="9"></circle>
+                                <path d="M0.683772234,24.7720759 L15,20 L15,20 L29.3162278,24.7720759 C29.7245699,24.90819 30,25.2903288 30,25.7207592 L30,33 L30,33 L0,33 L0,25.7207592 C3.91376688e-16,25.2903288 0.275430095,24.90819 0.683772234,24.7720759 Z" id="矩形"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

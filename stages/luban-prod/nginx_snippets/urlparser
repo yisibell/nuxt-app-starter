@@ -1,0 +1,102 @@
+perl_set $cache_args '
+sub {
+    my $r = shift;
+    my @args = split(/&/ , $r->args);
+    my $size =@args;
+    my @args_new = ();
+    for(my $i = 0; $i < $size; $i++) {
+        my $arg = $args[$i];
+        my @k_and_v = split(/=/, $arg);
+        my $key = $k_and_v[0];
+        if (!(($key =~ /^(utm_|gg).*/) || ($key eq "la") || ($key eq "gclid") || ($key eq "size") || ($key eq "fbclid")|| ($key eq "ref")|| ($key eq "lab")|| ($key eq "lastCat")|| ($key eq "msclkid")|| ($key eq "epik"))) {
+            @args_new = (@args_new, $arg);
+        }
+    }
+    my $cache_args = join("&", @args_new);
+    return $cache_args;
+}
+';
+
+perl_set $rewrite_uri '
+sub {
+    my $r = shift;
+    my @uri_array = split(/\//, $r->uri);
+    my @new_uri_array = ();
+    my @remain_uri_array = ();
+    my $change_currency = "";
+    my $is_full_site = "";
+    @args_array = ();
+
+    for (my $i = 0; $i < @uri_array; $i++) {
+            my $s = $uri_array[$i];
+
+            if ($s ne "") {
+                    my @k_and_v = split(/__/, $s, 2);
+                    my $k = $k_and_v[0];
+                    my $v = $k_and_v[1];
+
+                    if ($k eq "currency") {
+                            if ($change_currency eq "") {
+                                    $change_currency = $v;
+                            }
+                    } elsif ($k eq "full_site") {
+                    	if ($is_full_site eq "") {
+                    		$is_full_site = $v;
+                    	}
+                    } else {
+                            @remain_uri_array = (@remain_uri_array, $s);
+                    }
+
+                    if ($k ~~ [ "gid", "full_site", "orderby", "currency", "no_banner","p", "pid", "g", "is_ajax", "pos", "ve", "cur", "page" , "cat" ,"ver","gver", "color", "quick_view"]){
+                            @args_array = (@args_array, "$k=$v");
+                    } else {
+                            @new_uri_array = (@new_uri_array, $s);
+                    }
+            }
+    }
+
+    if ($change_currency ne "" || $is_full_site ne "") {
+            my $remain_new_url = "/" . join("/", @remain_uri_array);
+            if (scalar @remain_uri_array > 0) {
+                if ($remain_new_url =~ /\.php$/ || $remain_new_url =~ /\.html$/) {
+                } else {
+                    $remain_new_url = $remain_new_url . "/";
+                }
+            }
+
+            my $new_args = "";
+            if ($r->args ne "") {
+                    $remain_new_url .= "?" . $r->args;
+            }
+
+            use URI::Escape;
+            $remain_new_url = uri_escape($remain_new_url);
+
+            $new_url = "/changecc.php";
+            if ($change_currency ne "" ) {
+            	$new_args = $new_args . "currencyCode=" . $change_currency . "&";
+            }
+            if ($is_full_site ne ""){
+            	$new_args = $new_args . "full_site=" . $is_full_site . "&";
+            }
+            $new_args = $new_args . "backurl=" . $remain_new_url ;
+            $r->variable("new_args", $new_args);
+            return $new_url;
+    } else {
+            # There is no currency directive in url
+            if (scalar @args_array == 0) {
+                    return "";
+            } else {
+                    my $new_uri = "/" . join("/", @new_uri_array);
+                    if ( $new_uri =~ /\.php$/ ) {
+                    } else {
+                            $new_uri = $new_uri . "/";
+                    }
+                    $r->variable("new_args", join("&", @args_array) . "&" . $r->args);
+                    return $new_uri ;
+            }
+    }
+}
+';
+
+

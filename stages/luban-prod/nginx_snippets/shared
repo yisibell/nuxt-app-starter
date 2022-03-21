@@ -1,0 +1,23 @@
+gzip on;
+gzip_min_length  1100;
+gzip_buffers     4 8k;
+gzip_types       text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript image/x-icon application/javascript;
+
+output_buffers   1 32k;
+postpone_output  1460;
+client_max_body_size 20m;
+
+client_header_buffer_size 128k;
+large_client_header_buffers 4 128k;
+
+fastcgi_connect_timeout 300;
+fastcgi_send_timeout 300;
+fastcgi_read_timeout 300;
+fastcgi_busy_buffers_size 128k;
+fastcgi_temp_file_write_size 128k;
+fastcgi_intercept_errors on; ### resolve the problem: no input file specified
+
+proxy_buffer_size 64k;
+proxy_buffers 8 64k;
+fastcgi_buffer_size 128k;
+fastcgi_buffers 4 128k;

@@ -1,0 +1,127 @@
+if ($host = '$site_name') {
+        rewrite ^/(.*)$ https://$pc_site_name/$1 permanent;
+}
+set $is_jjhouse "false";
+if ($host ~* '$pc_site_name') {
+        set $cache_disabled 1;
+        set $is_jjhouse "true";
+}
+set $refer_is_jjhouse "false";
+if ($http_referer ~* '$pc_site_name') {
+        set $refer_is_jjhouse "true";
+}
+set $currId "1";
+if ( $cookie_JJCID ) {
+	set $currId $cookie_JJCID;
+}
+set $hasCurrSymbol "false";
+if ($uri ~* "currency__") {
+	set $hasCurrSymbol "true";
+}
+set $to_jjshouse $is_jjhouse$refer_is_jjhouse$hasCurrSymbol;
+if ($to_jjshouse = 'truetruetrue') {
+        rewrite ^/(.*)$ https://$pc_site_name/$1 permanent;
+}
+if ($to_jjshouse = 'truetruefalse') {
+        rewrite ^/(.*)$ https://$pc_site_name/currency__$currId/$1 permanent;
+}
+
+#define new_args, but handled by perl $r->variable() after evaluate $rewrite_uri;
+set $new_args '';
+if ($rewrite_uri != "") {
+    rewrite .* $rewrite_uri?$new_args? last;
+}
+
+set $isphp "false";
+if ($uri ~* "\.php$" ){
+        set $isphp "true";
+}
+set $hasCurrency "false";
+set $curr "";
+if ($args ~* "(.*)(^|&)currency=(\w+)(.*)"){
+		set $args $1$4;
+        set $curr $3;
+        set $hasCurrency "true" ;
+}
+set $currencyJump $isphp$hasCurrency;
+if ($currencyJump = "falsetrue") {
+         rewrite (.*) $1/currency__$curr?$args?  permanent;
+}
+
+set $ancientIE '';
+if ($http_user_agent ~* '(MSIE 8.|MSIE 7.|MSIE 6.|MSIE 5.|MSIE 4.|MSIE 3.|MSIE 2.|MSIE 1.)') {
+        set $ancientIE 'ancientIE';
+}
+
+rewrite ^/Prom-Dresses-2013-c18/(.*)$ /Prom-Dresses-c18/$1 permanent;
+rewrite ^/2014-Presidents-Day-Sale\/?$ /presidents_day_sale.php last;
+rewrite ^/userfiles/(.*)$ https://d3bvl598xc7qos.cloudfront.net/upimg/userfiles/$1;
+rewrite ^/contact$ https://$pc_site_name/about/help.php?page_id=186;
+rewrite ^/affiliate$ https://$pc_site_name/about/help.php?page_id=104;
+rewrite ^/affiliate_faq$ https://$pc_site_name/about/help.php?page_id=105;
+
+location ~* (^/$|/[^\/]+-[cgia]([0-9]+)|/wholesale-weekly-deal|/region/|/reviews/|/tag/|^(/..)?/help/|about/help.php|sitemap.php|search.php|2013-black-friday|2014-Presidents-Day-Sale|2014-Prom) {
+    error_page 404  "${web_root}error.php?act=p404";
+#    if ($scheme = "http") {
+#        set $cache_disabled 1;
+#    }
+#    if ($http_cloudfront_forwarded_proto = "http"){
+#        set $cache_disabled 1;
+#    }
+    proxy_pass              $protocol://${domain}_backend;
+    proxy_redirect          off;
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Port          $server_port;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_ignore_client_abort on;
+##proxy_next_upstream error timeout invalid_header http_500 http_503;
+    proxy_next_upstream http_502 http_504 error timeout invalid_header;
+    proxy_no_cache $cookie_preview $cache_disabled;
+    proxy_cache_bypass $cookie_preview $cache_disabled;
+    proxy_cache        cache_one;
+    proxy_cache_valid  200 304 3h;
+    proxy_cache_valid  301 302 1h;
+    proxy_cache_key    $scheme://$host-$cookie_JJCID-$cookie_abTest-$uri-$domain-$is_args$cache_args$cookie_isIE7$ancientIE;
+#proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+    proxy_ignore_headers "Cache-Control" "Expires";
+    proxy_store off;
+    proxy_hide_header  Set-Cookie;
+}
+
+location ~* /pay_notify\.php {
+    auth_basic off;
+    proxy_pass              $protocol://${domain}_backend;
+    proxy_redirect          off;
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Port          $server_port;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_ignore_client_abort on;
+    proxy_next_upstream http_502 http_504 http_500 error timeout invalid_header;
+}
+location ~* \.php {
+    error_page 404  "${web_root}error.php?act=p404";
+    include app-snippets/state;
+    proxy_pass              $protocol://${domain}_backend;
+    proxy_redirect          off;
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Port          $server_port;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_ignore_client_abort on;
+    proxy_next_upstream http_502 http_504 http_500 error timeout invalid_header;
+}
+
+location / {
+    error_page 404  "${web_root}error.php?act=p404";
+    proxy_pass              $protocol://${domain}_backend;
+    proxy_redirect          off;
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Port          $server_port;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_ignore_client_abort on;
+    proxy_next_upstream http_502 http_504 http_500 error timeout invalid_header;
+    proxy_hide_header  Set-Cookie;
+}

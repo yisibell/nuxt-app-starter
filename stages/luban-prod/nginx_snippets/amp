@@ -1,0 +1,3 @@
+#support amp
+
+rewrite /amp/(.*) /$1?amp=1 last;

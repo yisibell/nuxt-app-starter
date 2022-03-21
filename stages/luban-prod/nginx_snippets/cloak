@@ -1,0 +1,10 @@
+set $googlebot "no";
+if ($http_user_agent ~* "Googlebot") {
+    set $googlebot "yes";
+}
+
+set $cloak 0;
+set $mark_cloak "$cloak_country$googlebot";
+if ($mark_cloak = "yesno") {
+    set $cloak 1;
+}

@@ -1,0 +1,16 @@
+set $lang_code en;
+set $web_root /;
+if ($host ~* ^(da|ar|be|hr|cs|et|el|ht|he|hu|is|ga|ja|ko|lt|ms|mt|pl|sk|sl|tr|ro)\.) {
+        set $lang_code $1;
+        set $web_root /$lang_code/;
+}
+
+if ($host ~* \.(de|fr|se|nl|no|fi|es|pt|ru|cz)$) {
+        set $lang_code $1;
+        set $web_root /$lang_code/;
+}
+
+if ($uri ~* ^/(en|de|fr|es|se|no|da|fi|ru|nl|it|pt|ar|be|hr|cs|et|el|ht|he|hu|is|ga|ja|ko|lt|ms|mt|pl|sk|sl|tr|ro)/) {
+        set $lang_code $1;
+        set $web_root /$lang_code/;
+}

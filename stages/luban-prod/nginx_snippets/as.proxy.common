@@ -1,0 +1,39 @@
+if ($host = '$site_name') {
+        rewrite ^/(.*)$ https://$pc_site_name/$1 permanent;
+}
+
+#set $currCid "0";
+if ( $cookie_JJCID ) {
+	set $currCid $cookie_JJCID;
+}
+
+#set $currUCid "0";
+if ( $cookie_UCID ) {
+	set $currUCid $cookie_UCID;
+}
+
+#define new_args, but handled by perl $r->variable() after evaluate $rewrite_uri;
+set $new_args '';
+if ($rewrite_uri != "") {
+    rewrite .* $rewrite_uri?$new_args? last;
+}
+
+set $ancientIE '';
+if ($http_user_agent ~* '(MSIE 8.|MSIE 7.|MSIE 6.|MSIE 5.|MSIE 4.|MSIE 3.|MSIE 2.|MSIE 1.)') {
+        set $ancientIE 'ancientIE';
+}
+
+set $isApp '0';
+if ($http_user_agent ~* 'lq-App VeryVoga') {
+        set $isApp '1';
+}
+
+
+rewrite ^/Prom-Dresses-2013-c18/(.*)$ /Prom-Dresses-c18/$1 permanent;
+rewrite ^/2014-Presidents-Day-Sale\/?$ /presidents_day_sale.php last;
+rewrite ^/userfiles/(.*)$ https://d3bvl598xc7qos.cloudfront.net/upimg/userfiles/$1;
+rewrite ^/contact$ https://$pc_site_name/about/help.php?page_id=186;
+rewrite ^/affiliate$ https://$pc_site_name/about/help.php?page_id=104;
+rewrite ^/affiliate_faq$ https://$pc_site_name/about/help.php?page_id=105;
+
+

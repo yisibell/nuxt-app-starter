@@ -1,0 +1,44 @@
+/*
+ * 1.
+ *
+  <div class="lu-loading--three-bounce">
+    <div class="lu-loading--three-bounce__child"></div>
+    <div class="lu-loading--three-bounce__child"></div>
+    <div class="lu-loading--three-bounce__child"></div>
+  </div>
+ *
+ */
+ .lu-loading--three-bounce {
+  width: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &__child {
+    width: 14px;
+    height: 14px;
+    background-color: $--theme-color;
+    border-radius: 100%;
+    display: inline-block;
+    animation: lu-loading--three-bounce 1.4s ease-in-out 0s infinite both;
+
+    &:nth-of-type(1) {
+      animation-delay: -0.32s;
+    }
+
+    &:nth-of-type(2) {
+      animation-delay: -0.16s;
+    }
+  }
+}
+
+@keyframes lu-loading--three-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

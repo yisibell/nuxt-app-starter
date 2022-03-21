@@ -1,0 +1,87 @@
+
+#gallery
+rewrite ^/(.*)fb-style-gallery\/?(.*)$ /fb_style_gallery.php?cat_id=$2 last;
+rewrite ^/(.*)style-gallery\/outfits\/(.*)$ /style_gallery.php?gallery_id=$2 last;
+rewrite ^/(.*)style-gallery\/?(.*)$ /style_gallery.php?cat_id=$2 last;
+
+#add on
+rewrite /add-on-(.*)-cid([0-9]+)(.*)$   /add_on_product.php?code=$1&cat_id=$2 last;
+#add on V2
+rewrite /add-on-product   /add_on_product_opt.php last;
+
+#list
+#rewrite ^(/..)?/[^\/]*-c([0-9]+)(.*)$ /list.php?cat_id=$2&filter=$3 last;
+rewrite ^(\/..)?\/[^\/]*-l([0-9]+)(-t([0-9]+))*(.*)$ /list_multi.php?cat_id=$2&tag_id=$4&filter=$5 last;
+rewrite ^(\/..)?\/[^\/]*-c([0-9]+)(-t([0-9]+))*(.*)$ /list.php?cat_id=$2&tag_id=$4&filter=$5 last;
+
+#list-new-arrival
+rewrite ^/(.*)new-arrival-all*(.*)$ /list.php?cat_id=888888&tag_id=888888&filter=/new-arrival$2 last;
+#detail
+rewrite ^(/..)?/[^\/]*-i([0-9]+)\/?$ /product_multi.php?goods_id=$2 last;
+rewrite ^(/..)?/[^\/]*-g([0-9]+)\/?$ /product.php?goods_id=$2 last;
+
+
+#tag
+rewrite /tag/([^\/]+)\/?$  /tags.php?q=$1 last;
+rewrite /tag/([^\/]+)/([^\/]+)\/?$  /search.php?q=$2 last;
+
+#search
+rewrite /search/([^\/]+)\/?$  /search.php?q=$1 last;
+
+#questions and reviews
+rewrite /reviews\/?$ /viewticket.php last;
+rewrite /reviews\/[^\/]+-c([0-9]+)\/?$ /viewticket.php?cat_id=$1 last;
+rewrite /reviews\/[^\/]+-cid([0-9]+)-p([0-9]+)\/?$ /viewticket.php?cat_id=$1&goods_id=$2&type=reviews last;
+rewrite /qa\/[^\/]+-cid([0-9]+)-q([0-9]+)\/?$ /viewticket.php?cat_id=$1&goods_id=$2&type=qa last;
+
+#promotion
+rewrite /promotion_([^\/]+)\/?(p([^\/]+)\/?)?$  /general_promotion.php?promotion_name=$1&page=$3 last;
+rewrite /promotion/([^\/]+)\/?$  /promotion.php?code=$1 last;
+rewrite /(wholesale-weekly-deal)\/?(.*)$  /promotion.php?code=$1&filter=$2 last;
+rewrite ^(/..)?/promotion-sale-([^\/]+)\/?$ /bannerpage.php?code=$2 last;
+
+#new_arrival
+rewrite /(new-arrival)\/?(.*)$  /new_arrival.php?code=$1 last;
+
+#whats new
+rewrite /(whats-new)-([0-9])/[^\/]*-n([0-9]+)(.*)?$  /whats_new.php?code=$1&period=$2&cat_id=$3&filter=$4 last;
+rewrite /(whats-new)-([0-9])(.*)$  /whats_new.php?code=$1&period=$2&filter=$3 last;
+rewrite /collection\/?([^\/]*)\/?([^\?]*)\??(.*)$  /collection.php?cat_id=$1&filter=$2&$3 last;
+
+
+
+#return policy
+rewrite /return\/?$ /about/help.php?page_id=$return_policy_id last;
+
+#region seo
+rewrite /region\/?$ /region_seo.php last;
+rewrite /region/(\w+)-region\/?$ /region_seo.php?region_code=$1 last;
+rewrite /region\/[^\/]+-state-code-(\w+)-(\w+)\/?$ /region_seo.php?region_code=$1&state_code=$2 last;
+rewrite /region\/[^\/]+-r([0-9]+)\/?$ /region_seo.php?region_id=$1 last;
+rewrite /region\/[^\/]+-r([0-9]+)c([0-9]+)\/?$ /region_seo.php?region_id=$1&cat_id=$2 last;
+
+#activities
+rewrite /(2013-black-friday)\/?$  /black_friday.php?code=$1 last;
+rewrite /(2013-year-end-sale)\/?$  /year_end_sale.php?code=$1 last;
+rewrite /(2014-Prom)\/?$  /promotion/prom.php?code=$1 last;
+rewrite ^/(.*)2013-Christmas-Sale\/?$ /$1christmas_sale.php last;
+rewrite ^/(.*)win-ipad-mini\/?$ /promotion.php?code=winipad last;
+rewrite ^/(.*)win-free-dress\/?$ /promotion.php?code=windress last;
+rewrite /(.*)(christmas-sale)\/?$ /promotion.php?code=christmas-sale last;
+
+#short link
+rewrite /s\/([^\/]+)$  /short_link.php?code=$1 last;
+
+#help link
+rewrite ^(/..)?/help/(.*)\/?$ /help/direct.php?code=$2 last;
+rewrite ^(/..)?/submit_order_ticket\/?$ /account/submit_order_ticket.php last;
+
+#forbidden flashsale.php promotion_sale.php visit
+location ~* ^(/..)?/(flashsale.php|promotion_sale.php)(.*)$ {
+    return 404;
+}
+
+#forbidden office_location.php about_us.php shopbycolor.php visit
+location ~* ^(/..)?/(special_help_pages|shopbycolor)/(.*)$ {
+    return 404;
+}

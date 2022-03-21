@@ -1,0 +1,38 @@
+set $mine_query_country_id '0';
+if ($args ~* "(.*)(^|&)ucid=(\w+)(.*)") {
+    set $mine_query_country_id $3;
+}
+
+# ##############################################################################
+
+set $mine_exist_query_country_id "true";
+if ($mine_query_country_id = 0) {
+    set $mine_exist_query_country_id "false";
+}
+
+set $mine_exist_cookie_ucid "true";
+if ($cookie_UCID = "") {
+    set $mine_exist_cookie_ucid "false";
+}
+
+set $mine_expire_cookie_country_id "false";
+if ($cookie_UCID != $mine_query_country_id) {
+    set $mine_expire_cookie_country_id "true";
+}
+
+set $cookie_first "$mine_exist_query_country_id$mine_exist_cookie_ucid";
+if ($mine_query_country_id != 0) {
+    set $currUCid $mine_query_country_id;
+}
+if ($cookie_first = "falsetrue") {
+    set $currUCid $cookie_UCID;
+}
+
+set $mine_set_country_cookie "$mine_exist_query_country_id$mine_expire_cookie_country_id";
+
+# ##############################################################################
+
+set $mine_add_cookie_UCID "false";
+if ($mine_set_country_cookie = "truetrue") {
+    set $mine_add_cookie_UCID "true";
+}

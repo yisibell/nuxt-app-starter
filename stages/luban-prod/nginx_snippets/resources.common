@@ -1,0 +1,32 @@
+#backward compatability
+rewrite ^/themes/fashion/(.*) /public/$theme/$1 last;
+rewrite ^/themes/(.*) /public/$1 last;
+rewrite ^/(../)?(favicon.ico|apple-touch-icon.*.png) /public/$theme/images/$2 last;
+location ~* ^/public {
+    root $prjroot;
+    limit_conn   czone  50;
+    limit_req zone=rzone burst=50 nodelay;
+    expires 365d;
+    if ($gotom = 1) {
+        proxy_pass $protocol://${domain}_backend;
+    }
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Port          $server_port;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+location ~* ^/sitemap.*\.xml$ {
+    root $prjroot/var/sitemap;
+}
+location ~* ^/(robots|sitemap/).*$ {
+    root $prjroot/var/$1;
+}
+location ~* ^/newsletter/.*$ {
+    root $prjroot/var;
+}
+location ~* ^/(version|stack|stage)$ {
+    auth_basic off;
+    root $prjroot;
+    types {}
+    default_type text/plain;
+}

@@ -1,0 +1,38 @@
+set $mine_query_currency_name '';
+if ($args ~* "(.*)(^|&)currency=(\w+)(.*)") {
+    set $mine_query_currency_name $3;
+}
+
+# ##############################################################################
+
+set $mine_exist_query_currency_id "true";
+if ($mine_query_currency_id = 0) {
+    set $mine_exist_query_currency_id "false";
+}
+
+set $mine_exist_cookie_cid "true";
+if ($cookie_JJCID = "") {
+    set $mine_exist_cookie_cid "false";
+}
+
+set $mine_expire_cookie_currency_id "false";
+if ($cookie_JJCID != $mine_query_currency_id) {
+    set $mine_expire_cookie_currency_id "true";
+}
+
+set $cookie_first "$mine_exist_query_currency_id$mine_exist_cookie_cid";
+if ($mine_query_currency_id != 0) {
+    set $currCid $mine_query_currency_id;
+}
+if ($cookie_first = "falsetrue") {
+    set $currCid $cookie_JJCID;
+}
+
+set $mine_set_currency_cookie "$mine_exist_query_currency_id$mine_expire_cookie_currency_id";
+
+# ##############################################################################
+
+set $mine_add_cookie_JJCID "false";
+if ($mine_set_currency_cookie = "truetrue") {
+    set $mine_add_cookie_JJCID "true";
+}
