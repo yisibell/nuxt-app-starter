@@ -1,7 +1,7 @@
 {
   "name": "nuxt-app-starter",
   "version": "1.0.0",
-  "description": "A Progressive Web App based on Nuxt.js",
+  "description": "A Progressive Web App based on Nuxt.js and Koa.",
   "author": {
     "name": "elenh",
     "email": "yisiwings@163.com"
@@ -16,7 +16,8 @@
     "vuetify",
     "pm2",
     "koa",
-    "vue-composition-api"
+    "vue-composition-api",
+    "typescript"
   ],
   "repository": {
     "type": "git",
