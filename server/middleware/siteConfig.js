@@ -1,34 +1,25 @@
 const defu = require('defu')
 const envConfig = require('../../config')
 const { getPublicRuntimeConfig } = require('../../config/util')
-const { getSiteConfig } = require('../service/site')
+const { getSiteConfig } = require('../api/site')
 
-const { NUXT_APP_ENV, LOCAL } = process.env
+const { NUXT_APP_ENV } = process.env
 
 const siteConfigPond = {}
 
 const createSiteConfig = async (ctx) => {
-  const isDev = NUXT_APP_ENV === 'development'
-
   const { origin } = ctx.request
 
   // 请求基地址
-  const NUXT_APP_BASE_API = (LOCAL === '1' || isDev
-    ? envConfig(NUXT_APP_ENV).NUXT_APP_BASE_API
-    : `${origin}/api`
-  ).replace('http://', 'https://')
+  const { NUXT_APP_BASE_API } = envConfig(NUXT_APP_ENV)
 
   // 获取站点配置
   const data = await getSiteConfig({
-    ctx,
     NUXT_APP_BASE_API,
   })
 
   if (data) {
-    const allConf = defu(
-      { ...data, NUXT_APP_ENV, NUXT_APP_BASE_API },
-      envConfig(NUXT_APP_ENV)
-    )
+    const allConf = defu({ ...data, NUXT_APP_ENV }, envConfig(NUXT_APP_ENV))
 
     siteConfigPond[origin] = getPublicRuntimeConfig(allConf)
   }
