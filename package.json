@@ -58,7 +58,6 @@
     "nuxt": "~2.15.8",
     "swiper": "^6.4.11",
     "tippy.js": "^6.3.1",
-    "ua-parser-js": "^0.7.24",
     "vuex-persistedstate": "^3.2.0",
     "webfontloader": "^1.6.28",
     "yup": "^0.32.9"
@@ -66,9 +65,8 @@
   "devDependencies": {
     "@nuxt/types": "~2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/composition-api": "~0.26.0",
+    "@nuxtjs/composition-api": "~0.32.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",
-    "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/pwa": "^3.3.3",
     "@nuxtjs/sentry": "^5.0.3",
     "@nuxtjs/style-resources": "^1.2.0",
@@ -76,7 +74,6 @@
     "@sentry/cli": "^1.64.2",
     "@types/js-cookie": "^2.2.6",
     "@types/lodash": "^4.14.168",
-    "@types/ua-parser-js": "^0.7.35",
     "@types/uuid": "^8.3.1",
     "@vue/test-utils": "^1.1.0",
     "babel-jest": "^26.5.0",
@@ -94,7 +91,6 @@
     "redis": "^3.1.2",
     "svg-sprite-loader": "^5.0.0",
     "uuid": "^8.3.2",
-    "vconsole": "^3.5.2",
     "vue-jest": "^4.0.1",
     "yargs": "^16.2.0"
   },

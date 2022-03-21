@@ -13,10 +13,6 @@ const config = ({
   const srcDir = `${srcDirBase}/${themeName}`
   const buildDir = `${buildDirBase}/${themeName}`
 
-  // const isDev = NUXT_APP_ENV === 'development'
-  // const isProd = NUXT_APP_ENV === 'production'
-  // const isFt = NUXT_APP_ENV === 'ft'
-
   // extra nuxt config for current theme
   let extraConfig = {}
   try {
