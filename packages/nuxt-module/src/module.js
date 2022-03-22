@@ -3,7 +3,7 @@ import consola from 'consola'
 import { extendBuild } from './build'
 
 export const pluginFileName = (suffix) => {
-  return `luban-${suffix}`
+  return `nuxt-app-${suffix}`
 }
 
 export const runModule = async function (moduleObject, moduleOptions) {
@@ -27,15 +27,10 @@ export const runModule = async function (moduleObject, moduleOptions) {
   consola.info('Add @nuxtjs/vuetify module')
   await moduleObject.addModule(['@nuxtjs/vuetify', vuetifyOptions], true)
 
-
-
-
-
   if (enableSentry) {
     consola.info('Add @nuxtjs/sentry module')
     await moduleObject.addModule(['@nuxtjs/sentry', sentryOptions], true)
   }
-
 
   consola.info('Add svg-icon plugin')
   moduleObject.addPlugin({
@@ -59,25 +54,12 @@ export const runModule = async function (moduleObject, moduleOptions) {
     options: moduleOptions,
   })
 
-
-
-
-
-
-
-
   consola.info('Add Luban UI')
   moduleObject.addPlugin({
     src: path.join(__dirname, '..', 'plugins', 'luban-ui.js'),
     fileName: pluginFileName('luban-ui.js'),
     options: moduleOptions,
   })
-
-
-
-
-
-
 
   consola.info('Add web font loader')
   moduleObject.addPlugin({
@@ -86,8 +68,4 @@ export const runModule = async function (moduleObject, moduleOptions) {
     mode: 'client',
     options: moduleOptions,
   })
-
-
-
-
 }
