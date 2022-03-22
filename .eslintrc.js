@@ -27,5 +27,6 @@ module.exports = {
     'vue/no-v-html': 'off',
     'vue/valid-v-slot': 'off',
     'no-useless-escape': 'off',
+    'import/no-mutable-exports': 'off',
   },
 }

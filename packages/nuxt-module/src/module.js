@@ -11,12 +11,16 @@ export const runModule = async function (moduleObject, moduleOptions) {
     vuetify: vuetifyOptions,
     pwa: pwaOptions,
     sentry: sentryOptions,
+    axios: axiosOptions,
   } = moduleObject.options
 
   const { enableSentry } = moduleOptions
 
   consola.info('Extending webpack configuration')
   extendBuild(moduleObject, moduleOptions)
+
+  consola.info('Add @nuxtjs/axios module')
+  await moduleObject.addModule(['@nuxtjs/axios', axiosOptions], true)
 
   consola.info('Add @nuxtjs/pwa module')
   await moduleObject.addModule(['@nuxtjs/pwa', pwaOptions], true)
@@ -37,13 +41,6 @@ export const runModule = async function (moduleObject, moduleOptions) {
     src: path.join(__dirname, '..', 'plugins', 'svg-icon.js'),
     fileName: pluginFileName('svg-icon.js'),
     mode: 'client',
-    options: moduleOptions,
-  })
-
-  consola.info('Add api and request plugin')
-  moduleObject.addPlugin({
-    src: path.join(__dirname, '..', 'plugins', 'request.js'),
-    fileName: pluginFileName('request.js'),
     options: moduleOptions,
   })
 

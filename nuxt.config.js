@@ -77,6 +77,8 @@ const config = ({
       ],
     ],
 
+    plugins: ['~~/packages/nuxt-plugins/fetch'],
+
     // pwa
     pwa: {
       meta: false,

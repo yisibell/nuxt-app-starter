@@ -1,6 +1,5 @@
 import https from 'https'
 import qs from 'qs'
-import axios from 'axios'
 import Cookies from 'js-cookie'
 import serverCookies from 'cookie'
 import apiRespository from '~~/packages/api'
@@ -9,45 +8,10 @@ const assign = (obj, def) => {
   return Object.assign({}, obj, def)
 }
 
-// Axios.prototype cannot be modified
-const axiosExtra = {
-  setBaseURL(baseURL) {
-    this.defaults.baseURL = baseURL
-  },
-  onRequest(fn) {
-    this.interceptors.request.use((config) => fn(config) || config)
-  },
-  onResponse(fn) {
-    this.interceptors.response.use((response) => fn(response) || response)
-  },
-  onRequestError(fn) {
-    this.interceptors.request.use(
-      undefined,
-      (error) => fn(error) || Promise.reject(error)
-    )
-  },
-  onResponseError(fn) {
-    this.interceptors.response.use(
-      undefined,
-      (error) => fn(error) || Promise.reject(error)
-    )
-  },
-  onError(fn) {
-    this.onRequestError(fn)
-    this.onResponseError(fn)
-  },
-}
-
-const extendAxiosInstance = (axios) => {
-  for (const key in axiosExtra) {
-    axios[key] = axiosExtra[key].bind(axios)
-  }
-}
-
 const createAxiosInstance = (ctx) => {
-  const isClient = process.client
-  const { redirect, store, $config, req, res } = ctx
+  const { redirect, store, $config, req, res, $axios } = ctx
   const { NUXT_APP_ENV } = $config
+  const isClient = process.client
 
   const NUXT_APP_BASE_API = isClient
     ? store.state.env.NUXT_APP_BASE_API
@@ -61,14 +25,11 @@ const createAxiosInstance = (ctx) => {
         })
       : undefined
 
-  const axiosInstance = axios.create({
+  const axiosInstance = $axios.create({
     baseURL: NUXT_APP_BASE_API,
     timeout: 50000,
     httpsAgent,
   })
-
-  // Extend axios proto
-  extendAxiosInstance(axiosInstance)
 
   // 请求拦截
   axiosInstance.onRequest((config) => {
@@ -130,8 +91,8 @@ const createAxiosInstance = (ctx) => {
   return axiosInstance
 }
 
-// 创建 service
-const createService =
+// 创建请求api
+const createRequestApi =
   (axiosInstance, ctx) =>
   (option, { dataType = 'json', mock = false, loading = false } = {}) => {
     const { $config } = ctx
@@ -178,9 +139,10 @@ const createService =
 export default (ctx, inject) => {
   // axios instance
   const axiosInstance = createAxiosInstance(ctx)
+
   // 二次包装请求方法
-  const service = createService(axiosInstance, ctx)
+  const request = createRequestApi(axiosInstance, ctx)
 
   // 依赖注入
-  inject('api', apiRespository(service))
+  inject('api', apiRespository(request))
 }

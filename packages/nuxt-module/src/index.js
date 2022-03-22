@@ -1,8 +1,8 @@
 import { runModule } from './module'
 
-const LubanPWAModule = function (moduleOptions) {
+const moduleInitialization = function (moduleOptions) {
   const moduleObject = this
   runModule(moduleObject, moduleOptions)
 }
 
-export default LubanPWAModule
+export default moduleInitialization
