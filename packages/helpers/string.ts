@@ -23,33 +23,6 @@ export const formatToSingleDiagonal = (routePath: string) => {
 }
 
 /**
- * 驼峰转下划线
- * @param content {string}
- * @returns {string}
- */
-export const decamelize = (content: string) => {
-  const split = /(?=[A-Z])/
-  return content.split(split).join('_')?.toLowerCase()
-}
-
-/**
- * 去除最后的'/'
- * @param content {string}
- * @returns {string}
- */
-export const removeLastSlash = (content: string) => {
-  return content.replace(/\/$/, '')
-}
-
-/**
- * 提取字符串中的数字
- * @param content
- */
-export const parserIntHelper = (content: string) => {
-  return content.replace(/[^0-9]/gi, '')
-}
-
-/**
  * 格式化 css 样式单位至指定格式
  */
 export const formatCssUnit = (val: string | number, unit = 'px') => {

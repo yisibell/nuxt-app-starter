@@ -21,12 +21,3 @@ export const passwordValidator = (str: string) => {
 export const externalLinksValidator = (str: string) => {
   return /^http[s]?[:]\/\//.test(str)
 }
-
-/**
- *  验证字数是否在5-1000
- */
-export const messageValidator = (str: string) => {
-  const realStr = str && str.trim()
-  if (!realStr) return false
-  return str.length >= 5 && str.length <= 1000
-}

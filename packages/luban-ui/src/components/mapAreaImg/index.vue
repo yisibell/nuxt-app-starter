@@ -47,7 +47,7 @@ import {
 import * as uuid from 'uuid'
 import debounce from 'lodash/debounce'
 import { responsiveImgMapArea } from 'img-map-area'
-import { formatCssUnit } from '~~/packages/helpers/modules/string'
+import { formatCssUnit } from '~~/packages/helpers/string'
 
 export default defineComponent({
   name: 'LuMapAreaImg',
