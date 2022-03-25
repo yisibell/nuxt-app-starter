@@ -10,7 +10,7 @@ export const avaliableFonts = [defaultFontFamily, 'Roboto', 'Noto Sans']
 
 export default ({ store }) => {
   if (process.client) {
-    const { themeConfig } = store.state.env
+    const { themeConfig } = store.state.env || {}
 
     if (
       themeConfig &&

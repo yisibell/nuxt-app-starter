@@ -19,8 +19,8 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      console.log(ctx)
-      console.log(siteConfig)
+      console.log('ctx:', ctx)
+      console.log('site config:', siteConfig)
 
       fetchNav()
     })
