@@ -34,6 +34,8 @@ const config = ({
       extractCSS: {
         ignoreOrder: true,
       },
+      // 附加扩展名，使其可以编译 middleware 和 store 中的 ts 文件
+      additionalExtensions: ['ts', 'tsx'],
     },
 
     // nuxt 构建输出目录
