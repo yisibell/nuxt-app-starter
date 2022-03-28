@@ -11,7 +11,7 @@ export const extendOptimization = (config) => {
   splitChunks.minSize = 0
 
   cacheGroups.utilityVendors = {
-    test: /[\\/]node_modules[\\/](@vue|@aidol|@luban|swiper|ua-parser-js|vue-toasted|vue-i18n)[\\/]/,
+    test: /[\\/]node_modules[\\/](@vue|@aidol|@luban|swiper|ua-parser-js|vue-i18n)[\\/]/,
     name: true,
   }
 

@@ -9,13 +9,9 @@ const assign = (obj, def) => {
 }
 
 const createAxiosInstance = (ctx) => {
-  const { redirect, store, $config, req, res, $axios } = ctx
-  const { NUXT_APP_ENV } = $config
+  const { redirect, $config, req, res, $axios } = ctx
+  const { NUXT_APP_ENV, NUXT_APP_BASE_API } = $config
   const isClient = process.client
-
-  const NUXT_APP_BASE_API = isClient
-    ? store.state.env.NUXT_APP_BASE_API
-    : req.ctx.$config.NUXT_APP_BASE_API
 
   const httpsAgent =
     NUXT_APP_ENV !== 'production'

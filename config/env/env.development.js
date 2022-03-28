@@ -2,6 +2,8 @@
  * 开发环境运行时配置
  */
 module.exports = {
+  NUXT_APP_ENV: 'development',
+
   // 请求基地址
   NUXT_APP_BASE_API: 'https://luban.ft.veryvoga.com/api',
   // NUXT_APP_BASE_API: 'https://zfwang.ft.veryvoga.com/api',

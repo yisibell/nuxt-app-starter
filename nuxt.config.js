@@ -60,7 +60,7 @@ const config = ({
       ],
     },
 
-    buildModules: ['@nuxt/typescript-build', '@nuxtjs/style-resources'],
+    buildModules: ['@nuxt/typescript-build'],
 
     modules: [
       [
@@ -77,7 +77,7 @@ const config = ({
       ],
     ],
 
-    plugins: ['~~/packages/nuxt-plugins/fetch'],
+    plugins: [{ src: '~~/packages/nuxt-plugins/fetch' }],
 
     // pwa
     pwa: {

@@ -19,7 +19,7 @@ const createSiteConfig = async (ctx) => {
   })
 
   if (data) {
-    const allConf = defu({ ...data, NUXT_APP_ENV }, envConfig(NUXT_APP_ENV))
+    const allConf = defu(data, envConfig(NUXT_APP_ENV))
 
     siteConfigPond[origin] = getPublicRuntimeConfig(allConf)
   }
