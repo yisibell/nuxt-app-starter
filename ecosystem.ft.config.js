@@ -2,14 +2,14 @@
 module.exports = {
   apps: [
     {
-      name: 'LubanPwa',
+      name: 'NuxtAppStarter',
       exec_mode: 'cluster',
       instances: 'max', // Or a number of instances
       script: './server/index.js',
       env: {
         NODE_ENV: 'production',
         HOST: '0.0.0.0',
-        PORT: 4008,
+        PORT: 4005,
         NUXT_APP_ENV: 'ft',
       },
     },
