@@ -1,5 +1,0 @@
-location ~ /purge(/.*) {
-    allow all;
-    #deny all;
-    proxy_cache_purge http://jjshouse-$cookie_JJCID-$cookie_abTest-$1$is_args$args;
-}
