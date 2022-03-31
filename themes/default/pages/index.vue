@@ -1,5 +1,5 @@
 <template>
-  <div>nuxt app starter</div>
+  <div>Welcome To Nuxt App Starter!</div>
 </template>
 
 <script lang="ts">
@@ -24,10 +24,6 @@ export default defineComponent({
 
       fetchNav()
     })
-  },
-  async asyncData(ctx) {
-    const res = await ctx.$api.user.getInfo()
-    console.log(res)
   },
 })
 </script>

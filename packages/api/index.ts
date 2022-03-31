@@ -1,5 +1,4 @@
 import nav, { INavApiModuleInstance } from './modules/nav'
-import login, { ILoginApiModuleInstance } from './modules/login'
 import user, { IUserApiModuleInstance } from './modules/user'
 import { IRequestInstance } from '~~/packages/types/apiRespository'
 
@@ -8,7 +7,6 @@ import { IRequestInstance } from '~~/packages/types/apiRespository'
  */
 export interface IApiRespository {
   nav: INavApiModuleInstance
-  login: ILoginApiModuleInstance
   user: IUserApiModuleInstance
 }
 
@@ -21,7 +19,6 @@ export interface IApiRespositoryFactory {
 const apiRespositoryFactory: IApiRespositoryFactory = (request) => {
   $api = {
     nav: nav(request),
-    login: login(request),
     user: user(request),
   }
 

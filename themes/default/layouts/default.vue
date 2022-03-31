@@ -1,11 +1,15 @@
 <template>
-  <div id="default-layout">
-    <Nuxt />
-  </div>
+  <DefaultLayout />
 </template>
 
-<script>
-export default {
-  name: 'Default',
-}
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+import DefaultLayout from '~~/packages/layouts/Default'
+
+export default defineComponent({
+  name: 'DefaultLayoutContainer',
+  components: {
+    DefaultLayout,
+  },
+})
 </script>

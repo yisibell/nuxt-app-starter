@@ -1,7 +1,5 @@
 import https from 'https'
 import qs from 'qs'
-import Cookies from 'js-cookie'
-import serverCookies from 'cookie'
 import apiRespository from '~~/packages/api'
 
 const assign = (obj, def) => {
@@ -9,9 +7,9 @@ const assign = (obj, def) => {
 }
 
 const createAxiosInstance = (ctx) => {
-  const { redirect, $config, req, res, $axios } = ctx
+  const { redirect, $config, res, $axios } = ctx
   const { NUXT_APP_ENV, NUXT_APP_BASE_API } = $config
-  const isClient = process.client
+  // const isClient = process.client
 
   const httpsAgent =
     NUXT_APP_ENV !== 'production'
@@ -29,17 +27,8 @@ const createAxiosInstance = (ctx) => {
 
   // 请求拦截
   axiosInstance.onRequest((config) => {
-    if (isClient) {
-      // add token
-      config.headers.token = Cookies.get('JJSID') || ''
-    } else {
-      const { header } = req.ctx.request
-      const cookie = header.cookie || ''
-      const parsedCookies = serverCookies.parse(cookie)
-
-      config.headers.token = parsedCookies.JJSID || ''
-      config.headers.cookie = cookie
-    }
+    // set access token for JWT
+    axiosInstance.setToken('123', 'Bearer')
 
     return config
   })
