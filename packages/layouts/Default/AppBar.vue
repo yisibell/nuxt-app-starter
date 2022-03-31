@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import SearchInput from './SearchInput'
+import SearchInput from './SearchInput.vue'
 
 export default defineComponent({
   components: {

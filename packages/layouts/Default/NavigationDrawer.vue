@@ -77,7 +77,7 @@ export default defineComponent({
       visible.value = val
     })
 
-    const handleInput = (val) => {
+    const handleInput = (val: boolean) => {
       emit('update:modelValue', val)
     }
 

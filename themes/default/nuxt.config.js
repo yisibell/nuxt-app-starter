@@ -30,11 +30,11 @@ module.exports = {
           /**
            * 主题色
            */
-          primary: '#000000',
+          primary: '#0097C7',
           /**
            * 应用背景色
            */
-          appbody: '#f7f7f7',
+          appbody: '#F3F5F8',
         },
       },
     },
