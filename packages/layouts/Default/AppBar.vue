@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="deep-purple" dark :extension-height="48">
+  <v-app-bar app color="primary" dark :extension-height="48">
     <v-app-bar-nav-icon @click="handleNavIconClick"></v-app-bar-nav-icon>
     <v-toolbar-title>Nuxt App Starter</v-toolbar-title>
     <v-spacer></v-spacer>
