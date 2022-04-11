@@ -1,11 +1,5 @@
 <template>
-  <v-navigation-drawer
-    :value="visible"
-    app
-    absolute
-    temporary
-    @input="handleInput"
-  >
+  <v-navigation-drawer :value="visible" app temporary @input="handleInput">
     <v-list>
       <v-list-item>
         <v-list-item-avatar>
