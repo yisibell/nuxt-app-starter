@@ -3,7 +3,11 @@ A ssr app starter build by Nuxt + Koa + Vuetify + Typescript + Composition API.
 
 # Setup
 
-**注：** 包管理工具推荐使用 `yarn`。没有的话请预先安装: `npm i yarn -g`。
+**注：** 
+
+1. node 版本需 >= 14.x。推荐使用 nvm 管理 node 版本。
+2. 包管理工具推荐使用 `yarn`。没有的话请预先安装: `npm i yarn -g`。
+
 
 ``` zsh
 # 安装依赖
@@ -28,7 +32,7 @@ $ yarn pm2:start-ft
 # 在 docker 环境中通过 pm2-runtime 启动
 $ yarn pm2:docker:start
 # 在 docker 环境中通过 pm2-runtime 启动（ft）
-$ yarn pm2:docker:start
+$ yarn pm2:docker:start-ft
 
 ```
 

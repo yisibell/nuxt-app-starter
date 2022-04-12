@@ -8,6 +8,7 @@ const bodyParser = require('koa-bodyparser')
 const cors = require('@koa/cors')
 const createApiRoutes = require('./router')
 const createNuxtRoutes = require('./nuxtApp')
+const proxy = require('./middleware/proxy')
 
 const { NUXT_APP_HTTPS } = process.env
 
@@ -19,6 +20,9 @@ async function start() {
   try {
     const app = new Koa()
     const isHttps = NUXT_APP_HTTPS === '1'
+
+    // proxy
+    app.use(proxy())
 
     // ssl
     if (isHttps) {
