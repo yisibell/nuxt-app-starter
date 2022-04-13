@@ -79,7 +79,10 @@ const config = ({
       ],
     ],
 
-    plugins: [{ src: '~~/packages/nuxt-plugins/fetch' }],
+    plugins: [
+      { src: '~~/packages/nuxt-plugins/layer', mode: 'client' },
+      { src: '~~/packages/nuxt-plugins/fetch' },
+    ],
 
     // pwa
     pwa: {

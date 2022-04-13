@@ -1,18 +1,16 @@
+import type { AxiosRequestConfig } from 'axios'
+import type { Context } from '@nuxt/types'
+import type { NuxtAxiosInstance } from '@nuxtjs/axios'
+
 /**
- * axios options
+ * axios config
  */
-export interface IRequestOption {
-  baseURL?: string
-  url?: string
-  method: string
-  data?: any
-  params?: any
-}
+export type IRequestOptions = AxiosRequestConfig
 
 /**
  * 扩展的第二 options 选项
  */
-export interface IRequestExtraOption {
+export interface IRequestExtraOptions {
   /**
    * 发送的数据类型
    */
@@ -40,9 +38,16 @@ export interface IResponseInstance<T> {
  * request 函数定义
  */
 export interface IRequestInstance<T = any> {
-  (option: IRequestOption, extraOption?: IRequestExtraOption): Promise<
+  (option: IRequestOptions, extraOption?: IRequestExtraOptions): Promise<
     IResponseInstance<T> | T
   >
+}
+
+/**
+ * request 函数构造器
+ */
+export interface ICreateRequestApi {
+  (axiosInstance: NuxtAxiosInstance, ctx: Context): IRequestInstance
 }
 
 /**

@@ -1,5 +1,6 @@
 import { useContext } from '@nuxtjs/composition-api'
 import { IApiRespository } from '~~/packages/api'
+import type { LayerConstructor } from '~~/packages/nuxt-plugins/layer'
 
 /**
  * Nuxt Composition Api Context.
@@ -13,6 +14,7 @@ declare module '@nuxt/types' {
   // nuxt context
   interface Context {
     $api: IApiRespository // api respository
+    $layer: LayerConstructor
   }
 
   /**
@@ -21,5 +23,6 @@ declare module '@nuxt/types' {
    */
   interface NuxtAppOptions {
     $api: IApiRespository
+    $layer: LayerConstructor
   }
 }

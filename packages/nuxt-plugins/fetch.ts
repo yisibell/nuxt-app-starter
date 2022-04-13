@@ -1,34 +1,27 @@
-import https from 'https'
 import qs from 'qs'
+import { defineNuxtPlugin } from '@nuxtjs/composition-api'
+import type { Context } from '@nuxt/types'
 import apiRespository from '~~/packages/api'
+import type { ICreateRequestApi } from '~~/packages/types/apiRespository'
 
-const assign = (obj, def) => {
+const assign = (obj: {}, def: {}) => {
   return Object.assign({}, obj, def)
 }
 
-const createAxiosInstance = (ctx) => {
-  const { redirect, $config, res, $axios } = ctx
-  const { NUXT_APP_ENV, NUXT_APP_BASE_API } = $config
-  // const isClient = process.client
-
-  const httpsAgent =
-    NUXT_APP_ENV !== 'production'
-      ? new https.Agent({
-          // 是否忽略证书验证
-          rejectUnauthorized: false,
-        })
-      : undefined
+const createAxiosInstance = (ctx: Context) => {
+  const { redirect, $config, res, $axios, store } = ctx
+  const { NUXT_APP_BASE_API } = $config
 
   const axiosInstance = $axios.create({
     baseURL: NUXT_APP_BASE_API,
     timeout: 50000,
-    httpsAgent,
   })
 
   // 请求拦截
   axiosInstance.onRequest((config) => {
     // set access token for JWT
-    axiosInstance.setToken('123', 'Bearer')
+
+    axiosInstance.setToken(store.state.site.accessToken || '')
 
     return config
   })
@@ -62,11 +55,15 @@ const createAxiosInstance = (ctx) => {
 
   // 响应错误处理
   axiosInstance.onResponseError((err) => {
-    const { parseInt } = Number
-    const code = parseInt(err.response && err.response.status)
+    const code = err.response?.status
 
     console.error('[HTTP Response Error Code]:', code)
     console.error('[HTTP Response Error Info]:', err)
+
+    if (code === 401) {
+      // token 失效
+      redirect('/login')
+    }
 
     if (err.isAxiosError) {
       console.error('[Axios Response Error Info]:', err)
@@ -77,10 +74,12 @@ const createAxiosInstance = (ctx) => {
 }
 
 // 创建请求api
-const createRequestApi =
+const createRequestApi: ICreateRequestApi =
   (axiosInstance, ctx) =>
-  (option, { dataType = 'json', mock = false, loading = false } = {}) => {
-    const { $config } = ctx
+  (option, extraOption = {}) => {
+    const { dataType = 'json', mock = false, loading = false } = extraOption
+
+    const { $config, $layer } = ctx
     const { NUXT_APP_MOCK_API } = $config
 
     // 是否 mock 数据模式
@@ -94,7 +93,7 @@ const createRequestApi =
         {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        option.headers
+        option.headers || {}
       )
       option.data = qs.stringify(option.data)
     } else if (dataType === 'formData2') {
@@ -103,25 +102,25 @@ const createRequestApi =
         {
           'Content-Type': 'multipart/form-data',
         },
-        option.headers
+        option.headers || {}
       )
     }
 
     return new Promise((resolve, reject) => {
       if (process.client && loading) {
-        // loading instance
+        $layer.showLoading()
       }
 
       axiosInstance(option)
         .then(resolve)
         .catch(reject)
         .finally(() => {
-          // loading end
+          $layer.closeLoading()
         })
     })
   }
 
-export default (ctx, inject) => {
+export default defineNuxtPlugin((ctx, inject) => {
   // axios instance
   const axiosInstance = createAxiosInstance(ctx)
 
@@ -130,4 +129,4 @@ export default (ctx, inject) => {
 
   // 依赖注入
   inject('api', apiRespository(request))
-}
+})
