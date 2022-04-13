@@ -115,7 +115,7 @@ const createRequestApi: ICreateRequestApi =
         .then(resolve)
         .catch(reject)
         .finally(() => {
-          $layer.closeLoading()
+          if (process.client && loading) $layer.closeLoading()
         })
     })
   }

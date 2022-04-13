@@ -1,35 +1,12 @@
 import { defineNuxtPlugin } from '@nuxtjs/composition-api'
-
 import swal from 'sweetalert2'
-// import '@sweetalert2/theme-material-ui/material-ui.css'
+import type { SweetAlertOptions } from 'sweetalert2'
 
 export type SweetAlertInstance = ReturnType<typeof swal.mixin>
-export type SweetAlertConfiguration = Parameters<typeof swal.mixin>
-export type SweetAlertResult = ReturnType<typeof swal.fire>
 
-export interface LayerConstructor {
-  swalInstance: SweetAlertInstance
-  loadingInstance: SweetAlertInstance
-
-  /**
-   * 确认提示框
-   */
-  confirm(text: string, opts?: SweetAlertConfiguration): SweetAlertResult
-
-  /**
-   * 显示加载框
-   */
-  showLoading(): void
-
-  /**
-   * 关闭加载框
-   */
-  closeLoading(): void
-}
-
-export class Layer implements LayerConstructor {
-  swalInstance
-  loadingInstance
+export class Layer {
+  public swalInstance: SweetAlertInstance
+  public loadingInstance: SweetAlertInstance
 
   constructor() {
     this.swalInstance = swal.mixin({
@@ -60,12 +37,24 @@ export class Layer implements LayerConstructor {
     })
   }
 
-  confirm(text: string, opts?: SweetAlertConfiguration) {
+  confirm(text: string, opts?: SweetAlertOptions) {
     return this.swalInstance.fire({
       icon: 'question',
       showCancelButton: true,
       text,
-      ...opts,
+      ...(opts || {}),
+    })
+  }
+
+  toast(title: string, opts?: SweetAlertOptions) {
+    return this.swalInstance.fire({
+      icon: 'success',
+      position: 'top-end',
+      title,
+      showConfirmButton: false,
+      timer: 2500,
+      toast: true,
+      ...(opts || {}),
     })
   }
 
@@ -78,8 +67,8 @@ export class Layer implements LayerConstructor {
   }
 }
 
-export const layer = new Layer()
+export const $layer = new Layer()
 
 export default defineNuxtPlugin((_ctx, inject) => {
-  inject('layer', layer)
+  inject('layer', $layer)
 })
