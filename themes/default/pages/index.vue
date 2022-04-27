@@ -12,17 +12,10 @@ export default defineComponent({
     const { $api } = ctx
     const siteConfig = useSiteConfig()
 
-    // test api
-    const fetchNav = async () => {
-      const res = await $api.nav.get()
-      console.log('nav data:', res)
-    }
-
     onMounted(() => {
       console.log('ctx:', ctx)
       console.log('site config:', siteConfig)
-
-      fetchNav()
+      console.log('api repo:', $api)
     })
   },
 })

@@ -9,7 +9,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         HOST: '0.0.0.0',
-        PORT: 4005,
+        PORT: 3389,
         NUXT_APP_ENV: 'ft',
       },
     },

@@ -9,7 +9,7 @@ async function run() {
       theme = 'default',
       env = 'development',
       host = '127.0.0.1',
-      port = 4005,
+      port = 3389,
       https,
     } = argv
     const cmdStr = `cross-env NODE_ENV=development HOST=${host} PORT=${port} NUXT_APP_HTTPS=${https} NUXT_APP_ENV=${env} NUXT_APP_THEME_NAME=${theme} node server/index.js`

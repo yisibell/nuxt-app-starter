@@ -40,7 +40,7 @@ async function start() {
     await createNuxtRoutes(app)
 
     const host = process.env.HOST || '127.0.0.1'
-    const port = process.env.PORT || 4005
+    const port = process.env.PORT || 3389
 
     if (isHttps) {
       https
