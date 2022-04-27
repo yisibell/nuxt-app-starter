@@ -38,11 +38,6 @@ export const extendOptimization = (config) => {
     test: /[\\/]node_modules[\\/](vant)[\\/]/,
     name: true,
   }
-
-  // cacheGroups.vuetifyUI = {
-  //   test: /[\\/]node_modules[\\/](vuetify)[\\/]/,
-  //   name: true,
-  // }
 }
 
 // svg sprite

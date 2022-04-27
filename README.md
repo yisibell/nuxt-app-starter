@@ -5,9 +5,9 @@ A ssr app starter build by Nuxt + Koa + Vuetify + Typescript + Composition API.
 
 **注：** 
 
-1. node 版本需 >= 14.x。推荐使用 nvm 管理 node 版本。
+1. `node` 版本需 `>= 14.x`。推荐使用 `nvm` 管理 `node` 版本。
 2. 包管理工具推荐使用 `yarn`。没有的话请预先安装: `npm i yarn -g`。
-
+3. 生产环境推荐使用 `pm2` 启动应用。
 
 ``` zsh
 # 安装依赖
