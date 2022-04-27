@@ -39,15 +39,8 @@ export const extendOptimization = (config) => {
     name: true,
   }
 
-  cacheGroups.vuetifyUI = {
-    test: /[\\/]node_modules[\\/](vuetify)[\\/]/,
-    name: true,
-  }
-
-  // TODO: 样式拆包优化
-
-  // cacheGroups.styles = {
-  //   test: /\.(css|vue)$/,
+  // cacheGroups.vuetifyUI = {
+  //   test: /[\\/]node_modules[\\/](vuetify)[\\/]/,
   //   name: true,
   // }
 }
