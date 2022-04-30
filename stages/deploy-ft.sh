@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-cd /root/www/nuxt-app-starter
+# repo dir
+REPO_DIR_PATH=/root/www/nuxt-app-starter
 
+# cd repo dir
+cd $REPO_DIR_PATH
+
+# setup
 sudo git pull
 
-yarn install
+sudo yarn install
 
-yarn build:ft
+sudo yarn build:ft
 
-yarn pm2:start-ft
+sudo yarn pm2:start-ft
