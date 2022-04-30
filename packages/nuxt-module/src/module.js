@@ -8,7 +8,6 @@ export const pluginFileName = (suffix) => {
 
 export const runModule = async function (moduleObject, moduleOptions) {
   const {
-    vuetify: vuetifyOptions,
     pwa: pwaOptions,
     sentry: sentryOptions,
     axios: axiosOptions,
@@ -20,20 +19,17 @@ export const runModule = async function (moduleObject, moduleOptions) {
   extendBuild(moduleObject, moduleOptions)
 
   consola.info('Add @nuxtjs/axios module')
-  await moduleObject.addModule(['@nuxtjs/axios', axiosOptions], true)
-
-  consola.info('Add @nuxtjs/pwa module')
-  await moduleObject.addModule(['@nuxtjs/pwa', pwaOptions], true)
+  await moduleObject.requireModule(['@nuxtjs/axios', axiosOptions])
 
   consola.info('Add @nuxtjs/composition-api module')
-  await moduleObject.addModule('@nuxtjs/composition-api/module', true)
+  await moduleObject.requireModule('@nuxtjs/composition-api/module')
 
-  consola.info('Add @nuxtjs/vuetify module')
-  await moduleObject.addModule(['@nuxtjs/vuetify', vuetifyOptions], true)
+  consola.info('Add @nuxtjs/pwa module')
+  await moduleObject.requireModule(['@nuxtjs/pwa', pwaOptions])
 
   if (enableSentry) {
     consola.info('Add @nuxtjs/sentry module')
-    await moduleObject.addModule(['@nuxtjs/sentry', sentryOptions], true)
+    await moduleObject.requireModule(['@nuxtjs/sentry', sentryOptions])
   }
 
   consola.info('Add svg-icon plugin')
