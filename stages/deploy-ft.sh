@@ -2,6 +2,8 @@
 
 cd /root/www/nuxt-app-starter
 
+sudo git pull
+
 yarn install
 
 yarn build:ft
