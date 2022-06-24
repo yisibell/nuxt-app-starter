@@ -7,6 +7,11 @@ import pagination from './src/components/pagination'
 import animate from './src/components/animate'
 import tooltip from './src/components/tooltip'
 import mapAreaImg from './src/components/mapAreaImg'
+import SwiperBase from './src/components/swiper/base'
+import SwiperThumbs from './src//components/swiper/thumbs'
+
+// Swiper styles
+import 'swiper/swiper-bundle.css'
 
 // tippy.js styles
 import 'tippy.js/dist/tippy.css'
@@ -17,6 +22,8 @@ import './src/styles/index.scss'
 
 function install(Vue) {
   ;[
+    SwiperBase,
+    SwiperThumbs,
     mapAreaImg,
     tooltip,
     animate,
