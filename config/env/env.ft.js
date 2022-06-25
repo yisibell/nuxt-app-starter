@@ -3,7 +3,17 @@
  */
 module.exports = {
   NUXT_APP_ENV: 'ft',
-  NUXT_APP_BASE_API: 'https://luban.ft.veryvoga.com/api',
+  // 请求基地址
+  // NUXT_APP_BASE_API: 'http://16.163.143.182',
+
+  // 代理
+  NUXT_APP_BASE_API: '/api2',
+
+  proxy: {
+    target: 'http://16.163.143.182',
+    pathRewrite: { '^/api2': '' },
+  },
+
   NUXT_APP_MOCK_API: 'http://yapi.smaloo.com/mock/60/api',
   enablePageCaching: false,
   cacheStore: {

@@ -1,20 +1,20 @@
 import user, { IUserApiModuleInstance } from './modules/user'
-import { IRequestInstance } from '~~/packages/types/apiRespository'
+import { IRequestInstance } from '~~/packages/types/apiRepository'
 
 /**
  * api 仓库
  */
-export interface IApiRespository {
+export interface IApiRepository {
   user: IUserApiModuleInstance
 }
 
-export let $api: IApiRespository
+export let $api: IApiRepository
 
-export interface IApiRespositoryFactory {
-  (fn: IRequestInstance): IApiRespository
+export interface IApiRepositoryFactory {
+  (fn: IRequestInstance): IApiRepository
 }
 
-const apiRespositoryFactory: IApiRespositoryFactory = (request) => {
+const apiRepositoryFactory: IApiRepositoryFactory = (request) => {
   $api = {
     user: user(request),
   }
@@ -22,4 +22,4 @@ const apiRespositoryFactory: IApiRespositoryFactory = (request) => {
   return $api
 }
 
-export default apiRespositoryFactory
+export default apiRepositoryFactory

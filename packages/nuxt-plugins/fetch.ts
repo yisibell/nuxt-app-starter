@@ -1,8 +1,8 @@
 import qs from 'qs'
 import { defineNuxtPlugin } from '@nuxtjs/composition-api'
 import type { Context } from '@nuxt/types'
-import apiRespository from '~~/packages/api'
-import type { ICreateRequestApi } from '~~/packages/types/apiRespository'
+import apiRepositoryFactory from '~~/packages/api'
+import type { ICreateRequestApi } from '~~/packages/types/apiRepository'
 
 const assign = (obj: {}, def: {}) => {
   return Object.assign({}, obj, def)
@@ -128,5 +128,5 @@ export default defineNuxtPlugin((ctx, inject) => {
   const request = createRequestApi(axiosInstance, ctx)
 
   // 依赖注入
-  inject('api', apiRespository(request))
+  inject('api', apiRepositoryFactory(request))
 })

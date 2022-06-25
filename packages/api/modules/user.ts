@@ -1,83 +1,53 @@
 import {
-  IResponseInstance,
   IApiModuleContainer,
-} from '~~/packages/types/apiRespository'
+  IResponseInstance,
+} from '~~/packages/types/apiRepository'
 
-export interface UserInfoData {
-  /**
-   * 是否已登录
-   */
-  signedIn: boolean
-
-  /**
-   * 总收藏数
-   */
-  favTotal: number
-
-  /**
-   * 购物车商品数
-   */
-  cartTotal: number
-
-  /**
-   * 用户信息
-   */
-  userData: {
-    email: string
-    userName: string
-    userId: string
-  }
+export interface ILoginResData {
+  // 鉴权 token
+  accessToken: string
+  // 鉴权 token 有效期
+  expireTime: number
 }
 
-export interface changePwdForm {
-  /**
-   * 旧密码
-   */
-  oldPwd: string
-  /**
-   * 新密码
-   */
-  newPwd: string
-  /**
-   * 再次输入新密码
-   */
-  newPwdAgain: string
-}
-
-export interface changePwdRes {
-  /**
-   * 是否成功
-   */
-  success: boolean
-  /**
-   * 提示消息
-   */
-  message: string
+export interface IUserInfo {
+  companyName: string
+  code: string
+  contactPerson: string
+  companyAddress: string
+  mobile: string
+  postalCode: string
 }
 
 export interface IUserApiModuleInstance {
-  /**
-   * 获取当前用户信息
-   */
-  getInfo(): Promise<IResponseInstance<UserInfoData>>
-  /**
-   * 修改用户密码
-   */
-  changePwd(data: changePwdForm): Promise<IResponseInstance<changePwdRes>>
+  login(data: {
+    username: string
+    password: string
+  }): Promise<IResponseInstance<ILoginResData>>
+
+  logout(): Promise<IResponseInstance<{}>>
+
+  info(): Promise<IResponseInstance<IUserInfo>>
 }
 
 const userApi: IApiModuleContainer<IUserApiModuleInstance> = (request) => ({
-  getInfo() {
+  login(data) {
     return request({
-      url: `/v1/user/info`,
+      url: '/user/login',
+      method: 'post',
+      data,
+    })
+  },
+  logout() {
+    return request({
+      url: '/user/logout',
       method: 'get',
     })
   },
-  changePwd(data) {
+  info() {
     return request({
-      url: `/v1/user/change-password`,
-      method: 'post',
-      data,
+      url: '/user/info',
+      method: 'get',
     })
   },
 })
