@@ -1,5 +1,5 @@
 # nuxt-app-starter
-A ssr app starter build by Nuxt + Koa + Vuetify + Typescript + Composition API + sass.
+A ssr app starter build by Nuxt(2) + Koa + Vuetify + Typescript + Composition API + sass.
 
 # Setup
 

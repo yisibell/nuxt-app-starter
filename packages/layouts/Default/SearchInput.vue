@@ -2,13 +2,14 @@
   <v-text-field
     v-model="content"
     light
-    color="grey"
+    color="primary"
     append-icon="mdi-magnify"
     background-color="white"
     outlined
     dense
     hide-details
     rounded
+    clearable
     class="app-bar__search-input mr-4"
     @keydown.enter.prevent="handleEnter"
   ></v-text-field>
@@ -36,10 +37,21 @@ export default defineComponent({
 <style lang="scss" scoped>
 .app-bar__search-input {
   flex: none;
-  width: 400px;
+  width: 420px;
+
+  &__type {
+    width: 76px;
+  }
+
   ::v-deep {
     input {
       color: #9e9e9e;
+    }
+
+    .v-select__selection {
+      color: #9e9e9e;
+      font-size: 12px;
+      overflow: visible;
     }
   }
 }

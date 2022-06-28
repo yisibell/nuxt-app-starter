@@ -4147,6 +4147,11 @@ cookie@^0.4.1:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.2.tgz#0e41f24de5ecf317947c82fc789e06a884824432"
   integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
 
+cookie@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
+  integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
+
 cookies@~0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/cookies/-/cookies-0.8.0.tgz#1293ce4b391740a8406e3c9870e828c4b54f3f90"
@@ -7570,6 +7575,11 @@ js-cookie@^2.2.1:
   resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
   integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
 
+js-cookie@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.1.tgz#9e39b4c6c2f56563708d7d31f6f5f21873a92414"
+  integrity sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -8677,6 +8687,15 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+
+nuxt-persiststate-with-cookie@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/nuxt-persiststate-with-cookie/-/nuxt-persiststate-with-cookie-1.1.3.tgz#b8b59aafcfa571410d2154592238a8a31a0ab724"
+  integrity sha512-b7988pdCpD9q3mtFxzjAZaE1HK4p8hgH7OJe9+C02U09SHJeHNFz1vzpur9A7lNREd8OFelXOoScBfh+dNwetA==
+  dependencies:
+    cookie "^0.5.0"
+    js-cookie "^3.0.1"
+    vuex-persistedstate "^4.1.0"
 
 nuxt-ssr-cache@^1.5.2:
   version "1.5.2"
@@ -12249,10 +12268,10 @@ vuetify@^2.6:
   resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.6.4.tgz#18052f77492d32856fea35c910755075ff32acc9"
   integrity sha512-2wEzU/Gz39gQCxK93xoiWPKCHQUnyUKWd81wB7Q7hfYJWu5QOWQXYlF0X/BgUZzf8IOyHWKiSNEAfEe9OE3b4w==
 
-vuex-persistedstate@^3.2.0:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-3.2.1.tgz#85b05bdfa73e602b00c65e54698a690345c07cdf"
-  integrity sha512-0OnHKGsCHJcvbEraaGZvuvX4aybM2oQWYRuZmIQB7zUjVM6tP+Hg+oXLrq9r6elT4she9SGtEbGE1L2+XdFgUw==
+vuex-persistedstate@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/vuex-persistedstate/-/vuex-persistedstate-4.1.0.tgz#127165f85f5b4534fb3170a5d3a8be9811bd2a53"
+  integrity sha512-3SkEj4NqwM69ikJdFVw6gObeB0NHyspRYMYkR/EbhR0hbvAKyR5gksVhtAfY1UYuWUOCCA0QNGwv9pOwdj+XUQ==
   dependencies:
     deepmerge "^4.2.2"
     shvl "^2.0.3"

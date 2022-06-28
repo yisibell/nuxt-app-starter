@@ -11,6 +11,7 @@ export const runModule = async function (moduleObject, moduleOptions) {
     pwa: pwaOptions,
     sentry: sentryOptions,
     axios: axiosOptions,
+    persiststate: persiststateOptions,
   } = moduleObject.options
 
   const { enableSentry } = moduleOptions
@@ -27,6 +28,15 @@ export const runModule = async function (moduleObject, moduleOptions) {
   consola.info('Add @nuxtjs/pwa module')
   await moduleObject.requireModule(['@nuxtjs/pwa', pwaOptions])
 
+  consola.info('Add @nuxtjs/pwa module')
+  await moduleObject.requireModule(['@nuxtjs/pwa', pwaOptions])
+
+  consola.info('Add nuxt-persiststate-with-cookie module')
+  await moduleObject.requireModule([
+    'nuxt-persiststate-with-cookie',
+    persiststateOptions,
+  ])
+
   if (enableSentry) {
     consola.info('Add @nuxtjs/sentry module')
     await moduleObject.requireModule(['@nuxtjs/sentry', sentryOptions])
@@ -37,13 +47,6 @@ export const runModule = async function (moduleObject, moduleOptions) {
     src: path.join(__dirname, '..', 'plugins', 'svg-icon.js'),
     fileName: pluginFileName('svg-icon.js'),
     mode: 'client',
-    options: moduleOptions,
-  })
-
-  consola.info('Add vuex-persistedstate plugin')
-  moduleObject.addPlugin({
-    src: path.join(__dirname, '..', 'plugins', 'persistedstate.js'),
-    fileName: pluginFileName('persistedstate.js'),
     options: moduleOptions,
   })
 
