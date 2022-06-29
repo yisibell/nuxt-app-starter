@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <AppBar @nav-icon-click="drawerVisible = true" />
+    <AppBar @account-icon-click="drawerVisible = true" />
 
     <NavigationDrawer v-model="drawerVisible" />
 
-    <v-main>
+    <v-main class="appbody">
       <v-container>
         <Nuxt />
       </v-container>

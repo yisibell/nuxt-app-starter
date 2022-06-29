@@ -11,7 +11,7 @@ export const extendOptimization = (config) => {
   splitChunks.minSize = 0
 
   cacheGroups.utilityVendors = {
-    test: /[\\/]node_modules[\\/](@vue|@aidol|@luban|swiper|ua-parser-js|vue-i18n)[\\/]/,
+    test: /[\\/]node_modules[\\/](@vue|@aidol|swiper|yup|tippy.js|ua-parser-js|sweetalert2|vue-i18n)[\\/]/,
     name: true,
   }
 
@@ -31,6 +31,11 @@ export const extendOptimization = (config) => {
         module.resource.includes(`assets${path.sep}icons${path.sep}svg`)
       )
     },
+    name: true,
+  }
+
+  cacheGroups.elementUI = {
+    test: /[\\/]node_modules[\\/](element-ui)[\\/]/,
     name: true,
   }
 

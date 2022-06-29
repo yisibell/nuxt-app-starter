@@ -28,9 +28,6 @@ export const runModule = async function (moduleObject, moduleOptions) {
   consola.info('Add @nuxtjs/pwa module')
   await moduleObject.requireModule(['@nuxtjs/pwa', pwaOptions])
 
-  consola.info('Add @nuxtjs/pwa module')
-  await moduleObject.requireModule(['@nuxtjs/pwa', pwaOptions])
-
   consola.info('Add nuxt-persiststate-with-cookie module')
   await moduleObject.requireModule([
     'nuxt-persiststate-with-cookie',

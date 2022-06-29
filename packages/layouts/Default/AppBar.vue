@@ -1,10 +1,10 @@
 <template>
-  <v-app-bar app color="primary" dark :extension-height="48">
-    <v-app-bar-nav-icon @click="handleNavIconClick"></v-app-bar-nav-icon>
-    <v-toolbar-title>Nuxt App Starter</v-toolbar-title>
+  <v-app-bar app color="white" :extension-height="48" class="px-10">
+    <v-app-bar-nav-icon>
+      <v-img src="/icon.png" width="12" contain />
+    </v-app-bar-nav-icon>
+    <v-toolbar-title>{{ settings.appName }}</v-toolbar-title>
     <v-spacer></v-spacer>
-
-    <SearchInput />
 
     <v-btn icon>
       <v-badge content="0" color="red" overlap>
@@ -16,40 +16,33 @@
       <v-icon>mdi-heart</v-icon>
     </v-btn>
 
+    <v-btn icon @click="handleAccountClick">
+      <v-icon>mdi-account</v-icon>
+    </v-btn>
+
     <template #extension>
-      <v-tabs align-with-title :grow="false" slider-color="white">
-        <v-tab v-for="(v, i) in items" :key="i">
-          {{ v.title }}
-        </v-tab>
-      </v-tabs>
+      <CategoryNavigation />
     </template>
   </v-app-bar>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import SearchInput from './SearchInput.vue'
+import CategoryNavigation from './CategoryNavigation.vue'
+import settings from '~~/packages/settings'
 
 export default defineComponent({
   components: {
-    SearchInput,
+    CategoryNavigation,
   },
   setup(_props, { emit }) {
-    const items = [
-      { title: 'Web', href: '' },
-      { title: 'Shopping', href: '' },
-      { title: 'Videos', href: '' },
-      { title: 'Photos', href: '' },
-      { title: 'News', href: '' },
-    ]
-
-    const handleNavIconClick = () => {
-      emit('nav-icon-click')
+    const handleAccountClick = () => {
+      emit('account-icon-click')
     }
 
     return {
-      items,
-      handleNavIconClick,
+      handleAccountClick,
+      settings,
     }
   },
 })

@@ -1,10 +1,11 @@
 <template>
-  <div>Welcome To Nuxt App Starter!</div>
+  <div>Welcome To {{ settings.appName }}!</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, useContext } from '@nuxtjs/composition-api'
 import useSiteConfig from '~~/packages/composables/helper/useSiteConfig'
+import settings from '~~/packages/settings'
 
 export default defineComponent({
   setup() {
@@ -17,6 +18,10 @@ export default defineComponent({
       console.log('site config:', siteConfig)
       console.log('api repo:', $api)
     })
+
+    return {
+      settings,
+    }
   },
 })
 </script>
