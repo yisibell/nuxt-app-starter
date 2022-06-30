@@ -10,13 +10,8 @@ const siteConfigPond = {}
 const createSiteConfig = async (ctx) => {
   const { origin } = ctx.request
 
-  // 请求基地址
-  const { NUXT_APP_BASE_API } = envConfig(NUXT_APP_ENV)
-
   // 获取站点配置
-  const data = await getSiteConfig({
-    NUXT_APP_BASE_API,
-  })
+  const data = await getSiteConfig(ctx)
 
   if (data) {
     const allConf = defu(data, envConfig(NUXT_APP_ENV))

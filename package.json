@@ -62,6 +62,7 @@
     "sweetalert2": "^11.4.8",
     "swiper": "^6.4.11",
     "tippy.js": "^6.3.1",
+    "ua-parser-js": "^1.0.2",
     "webfontloader": "^1.6.28",
     "yup": "^0.32.9"
   },
