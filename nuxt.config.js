@@ -1,4 +1,4 @@
-const defu = require('defu')
+const { defu } = require('defu')
 const envConfig = require('./config')
 const { getPublicRuntimeConfig } = require('./config/util')
 
@@ -82,6 +82,8 @@ const config = ({
     plugins: [
       { src: '~~/packages/nuxt-plugins/layer', mode: 'client' },
       { src: '~~/packages/nuxt-plugins/fetch' },
+      { src: '~~/packages/nuxt-plugins/globalSetup' },
+      { src: '~~/packages/nuxt-plugins/i18n' },
     ],
 
     // pwa

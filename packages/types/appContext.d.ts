@@ -1,6 +1,7 @@
 import { useContext } from '@nuxtjs/composition-api'
 import { IApiRepository } from '~~/packages/api'
-import { Layer } from '~~/packages/nuxt-plugins/layer'
+import type { Layer } from '~~/packages/nuxt-plugins/layer'
+import type { LoadLanguageAsync } from '~~/packages/nuxt-plugins/i18n'
 
 /**
  * Nuxt Composition Api Context.
@@ -15,6 +16,7 @@ declare module '@nuxt/types' {
   interface Context {
     $api: IApiRepository // api respository
     $layer: Layer
+    $loadLanguageAsync: LoadLanguageAsync
   }
 
   /**
@@ -24,5 +26,6 @@ declare module '@nuxt/types' {
   interface NuxtAppOptions {
     $api: IApiRepository
     $layer: Layer
+    $loadLanguageAsync: LoadLanguageAsync
   }
 }

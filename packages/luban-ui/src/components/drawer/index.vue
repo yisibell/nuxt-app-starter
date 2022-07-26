@@ -161,7 +161,7 @@ export default defineComponent({
   }
 }
 
-::v-deep {
+:deep() {
   .v-navigation-drawer {
     &__content {
       background-color: var(--content-bgc);

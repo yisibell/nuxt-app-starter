@@ -1,4 +1,4 @@
-const defu = require('defu')
+const { defu } = require('defu')
 const envConfig = require('../../config')
 const { getPublicRuntimeConfig } = require('../../config/util')
 const { getSiteConfig } = require('../api/site')

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-app-starter",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A ssr app starter build by Nuxt(2) + Koa + Vuetify + Typescript + Composition API + sass.",
   "private": true,
   "author": {
@@ -52,7 +52,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "cookie": "^0.5.0",
     "core-js": "^3.6.5",
-    "defu": "^3.2.2",
+    "defu": "^6.0.0",
     "img-map-area": "^1.0.0",
     "js-cookie": "^3.0.1",
     "koa": "^2.13.1",
@@ -64,13 +64,15 @@
     "swiper": "^6.4.11",
     "tippy.js": "^6.3.1",
     "ua-parser-js": "^1.0.2",
+    "vant": "^2.12.48",
+    "vue-i18n": "^8.27.2",
     "webfontloader": "^1.6.28",
     "yup": "^0.32.9"
   },
   "devDependencies": {
     "@nuxt/types": "~2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/composition-api": "~0.32.0",
+    "@nuxtjs/composition-api": "~0.33.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",
     "@nuxtjs/pwa": "^3.3.3",
     "@nuxtjs/sentry": "^5.0.3",
@@ -101,6 +103,6 @@
     "yargs": "^16.2.0"
   },
   "engines": {
-    "node": ">= 14.x"
+    "node": ">= 14.20.0"
   }
 }

@@ -139,7 +139,7 @@ $--thumbs-height: 376px;
       }
     }
 
-    ::v-deep {
+    :deep() {
       .swiper-button-prev,
       .swiper-button-next {
         position: absolute;
