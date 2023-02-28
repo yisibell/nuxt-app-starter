@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aidol/svg-icon@^1.2.0":
-  version "1.3.0"
-  resolved "http://verdaccio.smaloo.com/@aidol%2fsvg-icon/-/svg-icon-1.3.0.tgz#ccf59ae10ca6dac2710d9349b5d99b54404f86d7"
-  integrity sha512-FYyrIHHCwEQUfBXPZJq0c//qur2J+tp3E+9XrhnyOxyrLOjFC64zf05/Wjh3cffTSWT7uzuH9+ACYqymIt/pXg==
+"@aidol/svg-icon@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@aidol/svg-icon/-/svg-icon-2.1.1.tgz#c1860800ad2cff446499349642ed014adb253532"
+  integrity sha512-vI59VI4EO3owIgTynzGepkX6792Ejbzd4MAEKLugWjBv+SHBcVbskEuuJ4xB7l9HLvBIn4QIYqypJjfKiBRRMQ==
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
