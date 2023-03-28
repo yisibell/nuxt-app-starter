@@ -20,3 +20,16 @@
 
 - 多语言方案: `vue-i18n` 集成。
 - 移动端引入 `vant@2`。
+## v2.0.1
+
+[compare changes](https://github.com/yisibell/nuxt-app-starter/compare/v2.0.0...v2.0.1)
+
+
+### 💅 Refactors
+
+  - **nuxt:** Upgrade nuxt to 2.16.0 ([759549a](https://github.com/yisibell/nuxt-app-starter/commit/759549a))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
