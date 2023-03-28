@@ -1,5 +1,18 @@
 # CHANGE LOG
 
+## v2.0.2
+
+[compare changes](https://github.com/yisibell/nuxt-app-starter/compare/v2.0.1...v2.0.2)
+
+
+### 🏡 Chore
+
+  - **changelog:** Fix changelog style ([edae2be](https://github.com/yisibell/nuxt-app-starter/commit/edae2be))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.0.1
 
 [compare changes](https://github.com/yisibell/nuxt-app-starter/compare/v2.0.0...v2.0.1)
