@@ -19,7 +19,7 @@ module.exports = {
   cacheStore: {
     private: true,
     type: 'redis',
-    host: 'db-t.opvalue.com',
+    host: 'db-t.example.com',
     ttl: 10 * 60,
   },
   sentryDsn: '',

@@ -1,7 +1,7 @@
-const APP_CMS_COMPILER_SERVER_HOST = 'https://luban-render.smaloo.com'
+const APP_CMS_COMPILER_SERVER_HOST = 'https://example.com'
 
 const REDIS_CONFIG = {
-  host: 'db-t.opvalue.com',
+  host: 'db-t.example.com',
 }
 
 module.exports = {

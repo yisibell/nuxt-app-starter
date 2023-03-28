@@ -4,13 +4,13 @@ A ssr app starter build by Nuxt(2) + Koa + Vuetify + Typescript + Composition AP
 
 # Setup
 
-## 环境准备
+## Environmental preparation
 
-1. `node` 版本需 `>= 14.x`。推荐使用 `nvm` 管理 `node` 版本。
-2. 包管理工具推荐使用 `yarn`。没有的话请预先安装: `npm i yarn -g`。
-3. 生产环境推荐使用 `pm2` 启动应用。
+1. `node` version requires `>= 14.x`. It is recommended to use `nvm` to manage `node` version.
+2. **Package management tools** recommend using `yarn`. If not, please pre-install: `npm i yarn -g`.
+3. It is recommended to use `pm2` to start the application in the production environment.
 
-## 脚本介绍
+## Scripts
 
 ``` zsh
 # 安装依赖
