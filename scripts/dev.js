@@ -1,10 +1,12 @@
 /* for development mode */
 
-const argv = require('yargs/yargs')(process.argv.slice(2)).parse()
+const minimist = require('minimist')
 const execa = require('execa')
 
 async function run() {
   try {
+    const argv = minimist(process.argv.slice(2))
+
     const {
       theme = 'default',
       env = 'development',
@@ -12,6 +14,7 @@ async function run() {
       port = 3389,
       https,
     } = argv
+
     const cmdStr = `cross-env NODE_ENV=development HOST=${host} PORT=${port} NUXT_APP_HTTPS=${https} NUXT_APP_ENV=${env} NUXT_APP_THEME_NAME=${theme} node server/index.js`
 
     await execa.command(cmdStr, {

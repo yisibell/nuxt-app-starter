@@ -1,9 +1,11 @@
 const execa = require('execa')
 const consola = require('consola')
-const argv = require('yargs/yargs')(process.argv.slice(2)).parse()
+const minimist = require('minimist')
 
 async function run() {
   try {
+    const argv = minimist(process.argv.slice(2))
+
     const { env = 'production', host = '0.0.0.0', port = 3389 } = argv
     const cmdStr = `cross-env NODE_ENV=production HOST=${host} PORT=${port} NUXT_APP_ENV=${env} node server/index.js`
 

@@ -1,6 +1,6 @@
 const execa = require('execa')
 const consola = require('consola')
-const argv = require('yargs/yargs')(process.argv.slice(2)).parse()
+const minimist = require('minimist')
 const { getThemeDirNames } = require('./util')
 
 async function buildTheme(themeName, env, { analyze = false } = {}) {
@@ -26,6 +26,8 @@ async function buildTheme(themeName, env, { analyze = false } = {}) {
 
 async function run() {
   try {
+    const argv = minimist(process.argv.slice(2))
+
     const { all, theme = 'default', env = 'production', analyze } = argv
 
     // 构建所有皮肤
