@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.1.4
+
+
+### 🏡 Chore
+
+  - Add nuxt-symbol-icons (00696bd)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.3
 
 
