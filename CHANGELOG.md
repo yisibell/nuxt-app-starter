@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.1.3
+
+
+### 🩹 Fixes
+
+  - Use changelogen 0.4.1 (91cd41d)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.2
 
 [compare changes](https://github.com/yisibell/nuxt-app-starter/compare/v2.1.1...v2.1.2)
