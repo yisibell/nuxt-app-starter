@@ -1,5 +1,18 @@
 # CHANGE LOG
 
+## v2.1.1
+
+[compare changes](https://github.com/yisibell/nuxt-app-starter/compare/v2.1.0...v2.1.1)
+
+
+### 🏡 Chore
+
+  - Remove useless plugins ([1a5574c](https://github.com/yisibell/nuxt-app-starter/commit/1a5574c))
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.0
 
 [compare changes](https://github.com/yisibell/nuxt-app-starter/compare/v2.0.2...v2.1.0)
