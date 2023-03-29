@@ -39,14 +39,6 @@ export const runModule = async function (moduleObject, moduleOptions) {
     await moduleObject.requireModule(['@nuxtjs/sentry', sentryOptions])
   }
 
-  consola.info('Add svg-icon plugin')
-  moduleObject.addPlugin({
-    src: path.join(__dirname, '..', 'plugins', 'svg-icon.js'),
-    fileName: pluginFileName('svg-icon.js'),
-    mode: 'client',
-    options: moduleOptions,
-  })
-
   consola.info('Add Luban UI')
   moduleObject.addPlugin({
     src: path.join(__dirname, '..', 'plugins', 'luban-ui.js'),

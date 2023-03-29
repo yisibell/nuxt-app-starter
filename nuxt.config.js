@@ -62,17 +62,16 @@ const config = ({
       ],
     },
 
-    buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+    buildModules: [
+      '@nuxt/typescript-build',
+      '@nuxtjs/vuetify',
+      'nuxt-symbol-icons',
+    ],
 
     modules: [
       [
         '~~/packages/nuxt-module',
         {
-          srcDir,
-          svg: {
-            // 是否禁用构建化的 svg sprite
-            disableSvgSpriteBuild: allConfig.disableSvgSpriteBuild,
-          },
           // 是否开启 sentry
           enableSentry: false,
         },

@@ -11,7 +11,7 @@
       <slot name="prepend">
         <v-app-bar :height="44" color="#ffffff" flat class="lu-drawer__app-bar">
           <v-btn v-if="right" icon @click="handleClose">
-            <lu-svg-icon :icon-class="closeBtnIcon" />
+            <lu-svg-icon :name="closeBtnIcon" />
           </v-btn>
 
           <v-spacer></v-spacer>
@@ -23,7 +23,7 @@
           <v-spacer></v-spacer>
 
           <v-btn v-if="!right" icon @click="handleClose">
-            <lu-svg-icon :icon-class="closeBtnIcon" />
+            <lu-svg-icon :name="closeBtnIcon" />
           </v-btn>
         </v-app-bar>
       </slot>

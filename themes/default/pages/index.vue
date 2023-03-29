@@ -1,5 +1,11 @@
 <template>
-  <div>Welcome To {{ settings.appName }}!</div>
+  <div>
+    <lu-svg-icon name="twitter" font-size="24px" />
+    <div>
+      Welcome To
+      {{ settings.appName }}!
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

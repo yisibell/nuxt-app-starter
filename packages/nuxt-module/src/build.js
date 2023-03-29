@@ -45,37 +45,11 @@ export const extendOptimization = (config) => {
   }
 }
 
-// svg sprite
-export const extendSvgSpriteLoader = (config, { srcDir, svg } = {}) => {
-  const { disableSvgSpriteBuild, svgSymbolIdPrefix = 'icon-' } = svg || {}
-
-  if (disableSvgSpriteBuild) return
-
-  const svgDir = path.join(process.cwd(), srcDir, 'assets/icons/svg')
-
-  /* extend svg-sprite-loader */
-  const svgRule = config.module.rules.find((rule) => rule.test.test('.svg'))
-  svgRule.exclude = [svgDir]
-
-  const symbolId = `${svgSymbolIdPrefix}[name]`
-
-  config.module.rules.push({
-    test: /\.svg$/,
-    include: [svgDir],
-    loader: 'svg-sprite-loader',
-    options: {
-      symbolId,
-    },
-  })
-}
-
 // 扩展 webpack 配置
-export const extendBuild = function (moduleObject, moduleOptions) {
+export const extendBuild = function (moduleObject, _moduleOptions) {
   // extend Webpack config
   moduleObject.extendBuild((config, { isClient }) => {
     if (isClient) {
-      extendSvgSpriteLoader(config, moduleOptions)
-
       extendOptimization(config)
     }
   })
