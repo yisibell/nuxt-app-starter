@@ -1,6 +1,6 @@
 {
   "name": "nuxt-app-starter",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "A ssr app starter build by Nuxt(2) + Koa + Vuetify + Typescript + Composition API + sass.",
   "private": true,
   "author": {
