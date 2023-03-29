@@ -9258,10 +9258,10 @@ nuxt-ssr-cache@^1.5.2:
     cache-manager-memcached-store "^2.1.0"
     cache-manager-redis "^0.6.0"
 
-nuxt-symbol-icons@^1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/nuxt-symbol-icons/-/nuxt-symbol-icons-1.4.4.tgz#3f984f51f23811f8d84d2d36879460580004abfd"
-  integrity sha512-LWTPiVGKuCV76hulGGKPdRBEfX8XI3ygDi1dbeIE+vN8Ln+NFBOIjJnCDQ60IvUb2qCxsRxTTfxVs/5LuSJW6A==
+nuxt-symbol-icons@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/nuxt-symbol-icons/-/nuxt-symbol-icons-1.5.0.tgz#52a0aa3002e229cd3f38384b1a3df6000fa0f660"
+  integrity sha512-fStcddGy/Rwre4Mn9Xqa5GwZyMEOZtpjuH7M5CoHsyVBe5Q5qqFgSnA2n0zw4znoVEXv+YkHT6VPHWNqe7SoDw==
   dependencies:
     svg-sprite-loader "^6.0.11"
     vue-symbol-icon "^2.0.1"
