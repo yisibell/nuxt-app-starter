@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.1.9
+
+
+### 🏡 Chore
+
+  - Test node 16 (192d678)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.8
 
 ## v2.1.7
