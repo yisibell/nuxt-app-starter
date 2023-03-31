@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.1.10
+
+
+### 🩹 Fixes
+
+  - **deps:** Upgrade deps nuxt-symbol-icons to 1.6.4 (76d98f3)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.9
 
 
