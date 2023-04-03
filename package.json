@@ -97,7 +97,7 @@
     "minimist": "^1.2.8",
     "nuxt-persiststate-with-cookie": "^2.0.0",
     "nuxt-ssr-cache": "^1.5.2",
-    "nuxt-symbol-icons": "^1.7.2",
+    "nuxt-symbol-icons": "^1.8.0",
     "prettier": "^2.1.2",
     "qs": "^6.9.4",
     "redis": "^3.1.2",
