@@ -1,6 +1,10 @@
 <template>
   <div>
-    <lu-svg-icon name="twitter" font-size="24px" />
+    <lu-svg-icon name="twitter" font-size="38px" />
+    <lu-svg-icon name="huiyuan" font-size="38px" color="red" />
+    <lu-svg-icon name="baogao" font-size="38px" />
+    <lu-svg-icon name="piano" font-size="38px" />
+
     <div>
       Welcome To
       {{ settings.appName }}!

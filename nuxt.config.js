@@ -68,6 +68,10 @@ const config = ({
       'nuxt-symbol-icons',
     ],
 
+    nuxtSymbolIcons: {
+      svgoConfig: true,
+    },
+
     modules: [
       [
         '~~/packages/nuxt-module',
