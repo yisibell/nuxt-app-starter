@@ -9234,16 +9234,16 @@ nuxt-ssr-cache@^1.5.2:
     cache-manager-memcached-store "^2.1.0"
     cache-manager-redis "^0.6.0"
 
-nuxt-symbol-icons@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/nuxt-symbol-icons/-/nuxt-symbol-icons-2.0.3.tgz#5497ab427c8d83db0db17c9778f2f8b58f7ead20"
-  integrity sha512-QfGf/ja2/88h6sl3KyE+I0XCxtGMbEGQe5Ku1fztlVQx6l4tQzPJf7oWh/hWVLYyqswQSDuGeqBVCjLb1RXpfA==
+nuxt-symbol-icons@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/nuxt-symbol-icons/-/nuxt-symbol-icons-2.1.1.tgz#901c20e2ab5e56c29a74e531013da3d4912a099c"
+  integrity sha512-7PQmjlvl36WL62S9EH+eMKr41zybcnwPc2v6OifQBT1ikIDfEYenxdSumVrxbK0VVpjCTMXW6DgyIaV8HngOTg==
   dependencies:
     loader-utils "^2.0.4"
     svg-sprite-loader "^6.0.11"
     svgo "^3.0.2"
     svgo-extra "^1.2.0"
-    vue-symbol-icon "^2.0.1"
+    vue-symbol-icon "^2.1.0"
 
 nuxt@~2.16.3:
   version "2.16.3"
@@ -12747,6 +12747,11 @@ vue-symbol-icon@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/vue-symbol-icon/-/vue-symbol-icon-2.0.1.tgz#fa74ee91b73544aa5dbe1787d16e413be2c5ab41"
   integrity sha512-I03xrsn99KQGwh5J+W1RW+XIU8VKU9DHXk/IsAp9MTJPh+FxAaMItLHcltWVRdlae06iuZvys6OzH8lRhi1C8w==
+
+vue-symbol-icon@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vue-symbol-icon/-/vue-symbol-icon-2.1.0.tgz#d42854e26dd4be32964556252088a61b14d0dcbd"
+  integrity sha512-mn0VKcdRdwjengYG51sdBls9f4jni5icUcXQQXwDcE2cbv/EXD137n5oCHU4Yx/RkUFw1+/ViIAgGB8fTLfePA==
 
 vue-template-compiler@^2.6.14:
   version "2.7.8"
