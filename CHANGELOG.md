@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.2.0
+
+
+### 🚀 Enhancements
+
+  - Update nuxt-symbol-icons (b260124)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.12
 
 ## v2.1.11
