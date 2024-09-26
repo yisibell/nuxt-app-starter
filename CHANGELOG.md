@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.3.0
+
+
+### 🚀 Enhancements
+
+  - **2.3:** Up @nuxt/typescript-build to v3 (87d63b7)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.2.1
 
 ## v2.2.0
