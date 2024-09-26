@@ -19,8 +19,9 @@
       "@@/*": ["./*"]
     },
     "types": [
-      "@types/node",
+      "@nuxt/typescript-build",
       "@nuxt/types",
+      "@types/node",
       "@nuxtjs/axios",
       "@nuxtjs/vuetify",
       "@nuxtjs/sentry"

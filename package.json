@@ -71,9 +71,9 @@
   },
   "devDependencies": {
     "@nuxt/types": "~2.16.3",
-    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxt/typescript-build": "^3.0.2",
     "@nuxtjs/composition-api": "~0.33.0",
-    "@nuxtjs/eslint-config-typescript": "^6.0.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.1",
     "@nuxtjs/pwa": "^3.3.3",
     "@nuxtjs/sentry": "^5.0.3",
     "@nuxtjs/vuetify": "^1.12.3",
@@ -96,7 +96,6 @@
     "koa-connect": "^2.1.0",
     "minimist": "^1.2.8",
     "nuxt-persiststate-with-cookie": "^2.0.0",
-    "nuxt-ssr-cache": "^1.5.2",
     "nuxt-symbol-icons": "^2.1.1",
     "prettier": "^2.1.2",
     "qs": "^6.9.4",
@@ -105,6 +104,6 @@
     "vue-jest": "^4.0.1"
   },
   "engines": {
-    "node": ">=14.20.0 <=16"
+    "node": ">=18"
   }
 }
