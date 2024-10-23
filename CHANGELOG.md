@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.4.0
+
+
+### 🚀 Enhancements
+
+  - Up ts version to v4.9 (65f3beb)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.3.0
 
 
