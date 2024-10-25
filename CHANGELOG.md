@@ -1,5 +1,16 @@
 # CHANGE LOG
 
+## v2.5.0
+
+
+### 🚀 Enhancements
+
+  - Up typescript to v5.6 (9a57080)
+
+### ❤️  Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.4.0
 
 
