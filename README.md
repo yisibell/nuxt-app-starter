@@ -6,7 +6,7 @@ A ssr app starter build by Nuxt(2) + Koa + Vuetify + Typescript + Composition AP
 
 ## Environmental preparation
 
-1. `node` version requires `>= 14.20.0 <=16`. It is recommended to use `nvm` to manage `node` version.
+1. `node` version requires `>= 14.20.0 <=18`. It is recommended to use `nvm` to manage `node` version.
 2. **Package management tools** recommend using `yarn`. If not, please pre-install: `npm i yarn -g`.
 3. It is recommended to use `pm2` to start the application in the production environment.
 
